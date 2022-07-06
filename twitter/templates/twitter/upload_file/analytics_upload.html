@@ -1,0 +1,365 @@
+{% extends 'twitter/main_admin.html'%}
+{% block title %}
+
+Upload file 
+
+{% endblock %}
+{% block content %}
+
+<div class="mcw">
+  <!--navigation here-->
+  <!--main content view-->
+  <div class="cv">
+    <div>
+     <div class="inbox">
+
+       <div class="inbox-bx container-fluid">
+<div class="container">
+<div class="Up_flex">
+ <div class="main_upload">
+
+ <div class="main">
+
+  <form method="POST" id="upload_form" enctype="multipart/form-data">
+    {% csrf_token %}
+      <h3>Upload Files</h3>
+
+<!-- https://codepen.io/sazzad/pen/antDJ -->
+
+ <div class="file-upload1">
+    	<div class="file-select">
+    		<div class="file-select-button" id="fileName2">Choose File</div>
+    		<div class="file-select-name" id="noFile2">No file chosen...</div> 
+    		<input type="file" id="upload_data" name="file">
+    	</div>
+    </div>
+
+     <button type="submit" name="upload_dataset" class="btn btn-primary upload_dataset">Upload file</button>
+     
+  </form>
+ </div>
+
+<div class="view_settings">
+	<div class="trai_set">
+		<h3>Training Settings</h3>
+		<p>Test Size: <span id="test_size"> </span></p>
+		<p>Random State: <span id="state"> </span></p>
+		<p>Average option: <span id="aver"> </span></p><br>
+	</div>
+
+	<div class="class_des">
+		<!-- If not exist, print(None trained classifier model) -->
+		<h3>Classifier Description</h3>
+		<p>Number of Correct: <span id="class_correct"></span></p>
+		<p>Number of Incorrect: <span id="class_incorrect"></span></p>
+		<p>Accuracy: <span id="class_accuracy"></span></p>
+		<p>Recall Score: <span id="class_recall"></span></p>
+		<p>Precision Score: <span id="class_precision"></span></p>
+		<p class="f1">F1 Score: <span id="class_f1"></span></p><br>
+	</div>
+</div>
+
+<div class="classfier_inputs">
+	<form method="POST" id="classForm">
+		{% csrf_token %}
+		<h3>Set Training Parameters</h3>
+
+			<!-- Test size = decimal from 0-1, example: 0.30(default) -->
+		<!-- Random state = integer from 1-100, example: 88 (default)-->
+		<!-- Average = (None, 'micro', 'macro'(default), 'weighted', 'samples') -->
+
+			<div class="form-group">
+				<label for="newTest">Test size(decimal):</label>
+				<input type="text" id="newTest" placeholder="0-1" onkeypress="return isNumberKey(event,this.id)" class="form-control" name="test_size" required>
+			</div>
+
+			<div class="form-group">
+				<label for="random_state">Random State:</label>
+				<input type="text" placeholder="1-100" id="random_state" maxlength="3" onkeypress="isInputNumber(event)" class="form-control" name="random_state" required>
+			</div>
+
+			<div class="form-group select_css">
+				<label for="inputState">Average</label>
+				<select id="average"  class="form-control" name="average" style="cursor:pointer;" required>
+					<{% for value, upload in uploadsF.fields.average.choices %}
+					<option value="{{value}}">{{upload}}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+		<button type="submit"name="new_settings" class="btn btn-primary">Submit</button>
+	</form>
+
+</div>
+
+
+<!--   <form method="POST" id="upload_form" enctype="multipart/form-data">
+    {% csrf_token %}
+      <h3>Classify Excel</h3> -->
+
+<!-- https://codepen.io/sazzad/pen/antDJ -->
+<!--     <div class="file-upload">
+    	<div class="file-select">
+    		<div class="file-select-button" id="fileName">Choose File</div>
+    		<div class="file-select-name" id="noFile">No file chosen...</div> 
+    		<input type="file" name="upload_input" id="chooseFile">
+    	</div>
+    </div>
+
+     <button type="submit" name="upload_class" class="btn btn-primary upload_dataset">Classify</button>
+     
+  </form> -->
+
+<div class="file_table">
+		<section class="recentTwo">
+                    <!-- ------------------------ -->
+                    <div class="activity-card_two">
+                        <div class="table-responsive table_res">
+	<table class="file_main_table">				
+		<thead>
+			<tr>
+				<th>NUMBER</th>
+				<th>FILE NAME</th>
+				<th>FILE EXTENSION</th>
+				<th>FILE PATH</th>
+				<th>TRAIN AS MODEL</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for i in files %}
+			<tr>
+				<td>{{forloop.counter}}</td>
+				<td>{{i.name}}</td>
+				<td>{{i.file_type}}</td>
+				<td>{{i.file}}</td>
+				<td>
+					<form method="POST" id="train_Model">
+						{% csrf_token %}
+						<input type="submit" id="sub_train" class="btn btn-success" name="train_model" value="{{i.name}}">
+					</form>
+				</td>
+				
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.all.min.js"></script>
+{% for message in messages %}
+    <script type="text/javascript">
+      window.onload = function(){
+        Swal.fire({
+        	icon: 'error',
+        	title: 'Please check your file! ',
+        	text: '{{message}}',
+        })
+      }
+    </script>
+{% endfor %}
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+
+
+$('#upload_form').on("click", ":submit", function (e) {
+
+  if (!$('#upload_data').val()) {
+  e.preventDefault();
+  Swal.fire({
+  	icon: 'info',
+  	title: 'Please upload a file! ',
+
+})
+  }
+
+});
+
+  function isInputNumber(evt){
+                
+    var ch = String.fromCharCode(evt.which);
+                
+    if(!(/[0-9]/.test(ch))){
+      evt.preventDefault();
+    }             
+}
+
+function isNumberKey(evt,id)
+{
+	try{
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+  
+        if(charCode==46){
+            var txt=document.getElementById(id).value;
+            if(!(txt.indexOf(".") > -1)){
+	
+                return true;
+            }
+        }
+        if (charCode > 31 && (charCode < 48 || charCode > 57) )
+            return false;
+
+        return true;
+	}catch(w){
+		alert(w);
+	}
+}
+
+// $('#upload_form').submit(function(event){
+//     validated = true;
+
+//     if ($('#upload_data').get(0).files.length === 0) {
+//         validated = false;
+//         console.log("No files selected.");
+//         // Or some div with image showing
+//     }
+
+//     if (validated != true) {
+//         event.preventDefault();
+//     }
+// });
+
+$('#chooseFile').bind('change', function () {
+  var filename = $("#chooseFile").val();
+  if (/^\s*$/.test(filename)) {
+    $(".file-upload").removeClass('active');
+    $("#noFile").text("No file chosen..."); 
+  }
+  else {
+    $(".file-upload").addClass('active');
+    $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+  }
+});
+
+
+	$('#upload_data').bind('change', function () {
+  var filename = $("#upload_data").val();
+  if (/^\s*$/.test(filename)) {
+    $(".file-upload1").removeClass('active');
+    $("#noFile2").text("No file chosen..."); 
+  }
+  else {
+    $(".file-upload1").addClass('active');
+    $("#noFile2").text(filename.replace("C:\\fakepath\\", "")); 
+  }
+});
+
+
+	$("#classForm").on("submit", function(e){
+	e.preventDefault();
+		var url = '{% url "twitter:classifier" %}'
+		var random = document.getElementById("random_state").value;
+		var convert = parseInt(random);
+
+		if(convert > 100){
+			e.preventDefault();
+				Swal.fire({
+					position: 'center',
+					icon: 'error',
+					title: 'Please check your input! at Random State ',
+					text: 'Max number is 100!',
+					showConfirmButton: false,
+					timer: 1900
+				})
+
+		}else{
+		$.ajax({
+			type:'POST',
+			url:url,
+			data:{
+				newTest:$('#newTest').val(),
+				random_state:$('#random_state').val(),
+				average:$('#average').val(),
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+			},
+			dataType: 'json',
+			success:function(data){
+				Swal.fire({
+					position: 'center',
+					icon: 'success',
+					title: 'Successfully Save!',
+					showConfirmButton: false,
+					timer: 1600
+				})
+				var size_test = data.source.test_size;
+				var rand_state = data.source.rand_state;
+				var average = data.source.average;
+
+				document.getElementById("test_size").innerHTML = size_test;
+				document.getElementById("state").innerHTML = rand_state;
+				document.getElementById("aver").innerHTML = average;
+
+
+				$('#newTest').val('');
+				$('#random_state').val('');
+				$('#average').val('');
+			}
+			
+		});
+		}
+	});
+
+
+	$("#train_Model").on("submit", function(e){
+		e.preventDefault();
+		console.log('TRAAAAIN')
+		var url = '{% url "twitter:train_model" %}'
+		$.ajax({
+			type:'POST',
+			url:url,
+			data:{
+				sub_train:$('#sub_train').val(),
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+			},
+			dataType: 'json',
+			success:function(data_two){
+				Swal.fire({
+					position: 'center',
+					icon: 'success',
+					title: data_two.message,
+					showConfirmButton: false,
+					timer: 1600
+				})
+
+				var correct = data_two.sourceTwo.correct;
+				var incorrect = data_two.sourceTwo.incorrect;
+				var accuracy = data_two.sourceTwo.accuracy;
+				var recall = data_two.sourceTwo.recall;
+				var precision = data_two.sourceTwo.precision;
+				var f1_score = data_two.sourceTwo.f1_score;
+
+				document.getElementById("class_correct").innerHTML = correct;
+				document.getElementById("class_incorrect").innerHTML = incorrect;
+				document.getElementById("class_accuracy").innerHTML = accuracy;
+				document.getElementById("class_recall").innerHTML = recall;
+				document.getElementById("class_precision").innerHTML = precision;
+				document.getElementById("class_f1").innerHTML = f1_score;
+
+				
+			
+
+			}
+			
+		});
+	});
+
+
+</script>
+{% endblock scripts %}

@@ -1,0 +1,338 @@
+{% extends 'twitter/main_admin.html'%}
+{% block title %}
+
+Chatbot Intents
+
+{% endblock %}
+{% block content %}
+{% load static %}
+<div class="mcw">
+
+  <div class="cv">
+     <div class="inbox">
+
+       <div class="inbox-bx container-fluid">
+<div class="container">
+
+<div class="main_tur">
+  <h3>TUNING SETTING:</h3>
+  <div class="p_tur">
+  <p>Epoch: <span id="id1_ep"></span></p>
+  <p>Learning rate: <span id="id2_le"></span></p>
+  <p>Batch Size: <span id="id3_bat"></span></p>
+  </div>
+
+  <form method="POST" id="tuningForm">
+      {% csrf_token %}
+      <div class="form-row new_fom">
+        <div class="form-group col-md-4">
+          <label>Epoch</label>
+          <input type="text" id="id_input_epoch" onkeypress="isInputNumber(event)" name="input_epoch"  required>
+      </div>
+      <div class="form-group col-md-4">
+          <label>Learning Rate</label>
+          <input type="text" id="id_input_lr" onkeypress="return isNumberKey(event,this.id)" required name="input_lr">
+      </div>
+      <div class="form-group col-md-4">
+          <label>Batch size</label>
+          <input type="text" id="id_input_bs" onkeypress="isInputNumber(event)" name="input_bs" required>
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary btn_int" name="train_chatbot">
+  TRAIN MODEL</button>
+  <button type="button" class="btn btn-primary btn_int" data-toggle="modal" data-target="#exampleModalCenter">
+      Add new intents
+  </button>
+
+      <p class="note_f">Note: chatbot will be train according to current intents</p>
+  </form>
+</div>
+
+
+<!-- ======================================================================================= -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add new intents</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" id="new_intents_form" action="">
+      	{% csrf_token %}
+      <div class="modal-body">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default">Tag</span>
+			</div>
+			<input type="text" name="tag" id="tag" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" required="">
+			 <small class="text-red text-muted mySpan"></small>
+		</div>
+
+
+		<div class="form-group">
+			<label for="exampleFormControlTextarea1">Patterns:</label>
+			<textarea class="form-control" id="pattern"  name="pattern" rows="3" required></textarea>
+		</div>
+		<div class="form-group" >
+			<label for="exampleFormControlTextarea1">Responses:</label>
+			<textarea class="form-control" id="response"  name="response" rows="3" required></textarea>
+			 
+		</div>
+
+
+	
+			<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-default">Context:</span>
+			</div>
+			<input type="text" name="context" id="context" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value=" ">
+		</div>
+	    
+		<div class="form-group" >
+			<label for="exampleFormControlTextarea1">Context Set</label>
+			<textarea class="form-control" id="context_set"  name="context_set" rows="3" value=" "></textarea>
+		</div>
+	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" name="submit_add">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- ======================================================================================= -->
+
+
+            <section class="recent">
+                    <!-- ------------------------ -->
+                    <div class="activity-card">
+                    <div id="header-card">
+                        <h3>DATABASE INTENTS</h3>
+                    </div>
+                    
+
+                        <div class="table-responsive">
+                            <table id="myTable" class="table" >
+                                <thead>
+                                	<tr>
+                                		
+                                		<th>#</th>
+                                		<th>Tag</th>
+                                		<th>Patterns</th>
+                                		<th>Responses</th>
+                                		<th>Context</th>
+                                		<th>Context Set</th>
+                                		<th>Delete</th>
+                                	</tr>
+                                </thead>
+                                <tbody>
+                                        {% for i in intents %}
+                                        <tr class="record">
+                                 
+                                        	<td>{{ forloop.counter }}</td>
+                                        	<td>{{i.tag}}</td>
+                                        	<td>{{i.pattern}}</td>
+                                        	<td>{{i.response}}</td>
+                                        	<td>{{i.context}}</td>
+                                        	<td>{{i.context_set}}</td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="{% url 'twitter:updata_delete' i.id_tag %}" class="link-delete btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="las la-trash-alt"></span></a></p></td>
+                                        </tr>
+                                        {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>    
+            </section>
+
+            <div class="second_main" id="second_main">
+                <div class="main_pro">
+                    <div class="ajaxProgress">
+                        <div class="TwoajaxProgress">
+                            <img src="{% static 'twitter/img/loding.gif' %}" alt="">
+                            <p>Training Loding . . .</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+    </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}
+
+{% block scripts %}
+<!-- REFERENCE LINK -->
+<!-- https://www.youtube.com/watch?v=rcbvOVQMjdE&t=109s -->
+
+
+
+
+
+<!-- ========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.all.min.js"></script>
+<script>
+
+
+	$("#new_intents_form").on("submit", function(e){
+	e.preventDefault();
+		console.log("Hello")
+		
+		var url = '{% url "twitter:intents" %}'
+		
+		$.ajax({
+			type:'POST',
+			url:url,
+			data:{
+				tag:$('#tag').val(),
+				patterns:$('#pattern').val(),
+				responses:$('#response').val(),
+				context:$('#context').val(),
+				context_set:$('#context_set').val(),
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+			},
+			success:function(data){
+				console.log(data,"<<<")
+				$("#exampleModalCenter").modal('hide');
+				$('.modal-backdrop').hide();
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Created new intents',
+                    showConfirmButton: false,
+                    timer: 1600
+                })
+				$('#tag').val('');
+				$('#pattern').val('');
+				$('#response').val('');
+				$('#context').val('');
+				$('#context_set').val('');
+				window.location = url;
+			
+
+			}
+		});
+	});
+
+
+
+        $("#tuningForm").on("submit", function(e){
+        e.preventDefault();
+        // console.log('TRAAAAIN')
+        $('.second_main').show();
+        var url = '{% url "twitter:tuning" %}'
+        $.ajax({
+            type:'POST',
+            url:url,
+            data:{
+                id_input_epoch:$('#id_input_epoch').val(),
+                id_input_lr:$('#id_input_lr').val(),
+                id_input_bs:$('#id_input_bs').val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+            },
+            dataType: 'json',
+            success:function(data){
+                $('.second_main').hide();
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Training done!',
+                    showConfirmButton: false,
+                    timer: 1600
+                })
+                $('#id_input_epoch').val('');
+                $('#id_input_lr').val('');
+                $('#id_input_bs').val('');
+
+                var epoch = data.source.epoch;
+                var rate = data.source.rate;
+                var batch = data.source.batch;
+
+                document.getElementById("id1_ep").innerHTML = epoch;
+                document.getElementById("id2_le").innerHTML = rate;
+                document.getElementById("id3_bat").innerHTML = batch;
+
+
+            }
+            
+        });
+    });
+
+function isNumberKey(evt,id)
+{
+    try{
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+  
+        if(charCode==46){
+            var txt=document.getElementById(id).value;
+            if(!(txt.indexOf(".") > -1)){
+    
+                return true;
+            }
+        }
+        if (charCode > 31 && (charCode < 48 || charCode > 57) )
+            return false;
+
+        return true;
+    }catch(w){
+        alert(w);
+    }
+}
+
+
+	$(".link-delete").on("click", function(e){
+    e.preventDefault();
+
+    var $this = $(this);
+    if(confirm("Sure to delete?")){
+        $.ajax({
+            url: $this.attr("href"),
+            type: "GET",
+            dataType: "json",
+            success: function(resp){
+                if(resp.message == "success"){
+                    $this.parents(".record").fadeOut("slow", function(){
+                        $this.parents(".record").remove();
+                    });
+                }else{
+                    alert(resp.message);
+                }
+            }
+        });
+    }
+    return false;
+});
+
+
+function isInputNumber(evt){
+                
+    var ch = String.fromCharCode(evt.which);
+                
+    if(!(/[0-9]/.test(ch))){
+      evt.preventDefault();
+    }           
+}
+
+</script>
+{% endblock scripts %}
+
+  

@@ -1,0 +1,329 @@
+[data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
+
+
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid black;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.tab.active {
+  background-color: #CCC;
+}
+
+.tab:hover {
+  background-color: #AAA;
+}
+
+.tab-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+
+/*================================================================================*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+:root {
+  --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --msger-bg: #fff;
+  --border: 2px solid #ddd;
+  --left-msg-bg: #ececec;
+  --right-msg-bg: #579ffb;
+
+  --main-color:rgb(204, 52, 52);
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body{
+  height: 100%;
+  margin: 0;
+  background-image: var(--body-bg);
+  background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.container-fluid{
+  max-width: 1343px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+/*==============================================DROP DOWN START============================*/
+.fex_form{
+  display: flex;
+  gap: 1rem;
+}
+.back_back{
+  margin-right: 50px;
+}
+.header{
+  background:linear-gradient(90deg,#E71B24, #C41922);
+  display: flex;
+  align-items: baseline;
+  padding:1rem;
+  justify-content: space-between;
+}
+.link{
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #ECF0F1;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  transition: 0.3s;
+}
+.dropdown1.active > .link,
+.link:hover{
+  font-weight: 700;
+    color: #FDFEFE;
+    transform: scale(1.05);
+}
+
+.select_css{
+
+  margin-bottom: 10px;
+}
+.dropdown1{
+  position: relative;
+}
+.dropdown-menu1{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: calc(100% + .25rem);
+  /*background-color: #fff;*/
+  padding:2px;
+ /* border-radius: .25rem;
+  box-shadow: 0 2px 5px 0 rgb(0, 0, 0, .1);*/
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 159ms ease-in-out, transform 150ms ease-in-out;
+}
+.dropdown1.active > .link + .dropdown-menu1{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.main_head h2{
+  margin-bottom: 2rem;
+}
+/*================================LOST AND FOUND START============================================*/
+
+.main_LostFound{
+  width: 1000px;
+  background-color: #fff;
+  padding:30px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.radio_c{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+
+
+/*================================LOST AND FOUND END============================================*/
+/*==============================================DROP DOWN END============================*/
+
+
+/*==============================================FORM HEAD============================*/
+
+.backForm{
+}
+
+
+
+.backForm button{
+  background-color: #f44336;
+  border: 1px solid #fff;
+  color: white;
+  padding: 7px 21px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.backForm button:hover{
+   background-color: #C41922;
+}
+
+.link_flex{
+width: 1000px;
+}
+.link_back{
+  /*max-width: 83rem;
+  min-width: 18rem;*/
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  flex-grow: 1;
+}
+@media screen and (max-width: 1066px){
+  .link_flex{
+    width: 800px;
+  }
+  .main_LostFound{
+    width: 800px;
+  }
+  @media screen and (max-width: 866px){
+    .link_flex{
+      width: 400px;
+    }
+    .main_LostFound{
+      width: 400px;
+    }
+  }
+  @media screen and (max-width: 520px){
+    .link_flex{
+      width: 390px;
+    }
+    .main_LostFound{
+      width: 350px;
+      margin: 0;
+    }
+    .msger {
+    margin:0;
+}
+
+  }
+   @media screen and (max-width: 430px){
+    .link_flex{
+        width: 230px;
+    }
+    .main_LostFound{
+    position: absolute;
+    width: 322px;
+    left: -59px;
+    }
+    
+   }
+   @media screen and (max-width: 334px){
+    .main_LostFound{
+       width: 300px;
+    }
+   }
+}
+
+.links_header{
+  font-size: medium;
+  justify-content: space-between;
+  padding: 10px;
+  text-align: center;
+  border-bottom: var(--border);
+  background: linear-gradient(90deg,#E71B24, #C41922);
+  color: #fff;
+  font-weight: 700;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+}
+.table_links{
+  padding: 10px;
+}
+
+.activity-card_two{
+    background: #fff;
+    border-radius: 7px;
+    max-width: 112rem;
+}
+.activity-card_two h3 {
+    color: #fff;
+    margin: 1rem;
+}
+
+.activity-card_two form{
+    padding: 1rem;
+    margin-right: 27px;
+}
+.activity-card_two form h3{
+    color: black;
+}
+.activity-card_two form input{
+    margin: 1rem;
+}
+.activity-card_two table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.activity-card_two thead {
+    background: #efefef;
+    text-align: left;
+}
+.table_res{
+   height:20rem;
+   overflow:auto;  
+}
+
+.table{
+  white-space:nowrap;
+
+}
+.table th, .table td{
+  padding: 10px 10px 10px 15px;
+
+}
+
+.link_tb td a{
+  text-decoration: none;
+}
+.link_tb td a:hover{
+  color: #C41922;
+}
+tbody tr:nth-child(even) {
+    background: #f9fafc;
+}
+.active{
+	display: block;
+}
+/*==============================================FORM HEAD END============================*/
+
+
+/*================================CHATBOT============================================*/
+

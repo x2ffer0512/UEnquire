@@ -1,0 +1,216 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <link rel="stylesheet" href="{% static 'chatbot/styles/bootstrap.css' %}?{% now "U" %}"">
+    <link rel="stylesheet" href="{% static 'chatbot/styles/sample.css' %}?{% now "U" %}"">
+</head>
+<body>
+<header>
+<div class="header">
+<div class="fex_form">
+
+  <div class="dropdown1" data-dropdown>
+    <button class="link" data-dropdown-button>Links</button>
+    <div class="dropdown-menu1">
+      <div class="link_flex">
+        <div class="link_back">
+          <div class="table_links">
+            <section class="recentTwo">
+              <!-- ------------------------ -->
+              <div class="activity-card_two">
+                <div class="table-responsive table_res">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Links Name</th>
+                        <th>Links URL</th>
+                      </tr>
+                    </thead>
+                    <tbody class="link_tb">
+                      {% for i in links %}
+                      <tr class="record">
+                        <td data-label="Links Name">{{i.link_name}}</td>
+                        <td data-label="Links URL">{{i.links}}</td>
+                      </tr>
+                      {% endfor %}
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>    
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="dropdown1" data-dropdown>
+  <button class="link" data-dropdown-button>Lost & Found</button>
+  <div class="dropdown-menu1">
+    
+   <div class="main_LostFound">
+
+    <ul class="tabs">
+      <li data-tab-target="#Form" class="active tab">Home</li>
+      <li data-tab-target="#Form2" class="tab">Pricing</li>
+      <li data-tab-target="#about" class="tab">About</li>
+    </ul>
+
+    <div class="tab-content">
+    <div class="container_los active" id="Form" data-tab-content>
+      <div class="main_head">
+        <h2>Lost and Found</h2>
+      </div>
+      <div class="main_body_lost">
+        <form method="POST" id="lostForm">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Name</label>
+              <input type="text" name="name" id="name_lost" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputStudentNum">Student #</label>
+              <input type="text"  maxlength="11" name="stud_num" id="stud_num_lost" onkeypress="isInputNumber(event)" class="form-control">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input type="email" name="email" id="email_lost" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputContact">Contact</label>
+              <input type="text" name="contact"  maxlength="11" id="contact_lost" onkeypress="isInputNumber(event)" class="form-control" required >
+            </div>
+          </div>
+          <div class="radio_c">
+            <div class="custom-control custom-radio col-md-6">
+              <input type="radio" name="lost_and_found" value="L" id="lost_lost" class="custom-control-input"  name="radio-stacked" required>
+              <label class="custom-control-label" for="customControlValidation2">Lost</label>
+            </div>
+            <div class="custom-control custom-radio col-md-6">
+              <input type="radio" name="lost_and_found" value="F" id="found_lost" class="custom-control-input"  name="radio-stacked" required>
+              <label class="custom-control-label" for="customControlValidation3">Found</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputItem">Item</label>
+            <input type="text" name="item" id="item_lost" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Item description:</label>
+            <textarea class="form-control" name="item_desc" id="item_desc_lost" rows="3" required></textarea>
+          </div>
+          <div class="form-group select_css">
+            <label for="inputState">Pick Up Location</label>
+            <select name="pick_up_loc" id="pick_up_loc_lost" class="form-control" style="cursor:pointer;">
+              <{% for value, lostNfound in form_new.fields.pick_up_loc.choices %}
+              <option value="{{value}}">{{lostNfound}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <button type="submit" name="lost_lost_sub" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="container_los" id="Form2" data-tab-content>
+      <div class="main_head">
+        <h2>DANA ALL</h2>
+      </div>
+      <div class="main_body_lost">
+        HELLO
+      </div>
+    </div>
+
+  </div><!-- End tab-content -->
+
+
+  </div><!-- End main_LostFound -->
+
+</div>
+</div>
+</div>
+<div class="dropdown1 back_back" data-dropdown>
+  <button class="link" data-dropdown-button>Back</button>
+   <div class="dropdown-menu1">
+  <form method="POST" action="#" class="backForm">
+    {% csrf_token %}
+    <button type="submit" name="endSessions">Back</button>
+  </form>
+</div>
+</div>
+
+ 
+
+</div>
+</header>
+
+
+
+
+  
+
+  <div class="tab-content">
+    <div id="home" data-tab-content class="active">
+      <h1>Home</h1>
+      <p>This is the home</p>
+    </div>
+    <div id="pricing" data-tab-content>
+      <h1>Pricing</h1>
+      <p>Some information on pricing</p>
+    </div>
+    <div id="about" data-tab-content>
+      <h1>About</h1>
+      <p>Let me tell you about me</p>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    const tabs = document.querySelectorAll('[data-tab-target]')
+    const tabContents = document.querySelectorAll('[data-tab-content]')
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.tabTarget)
+        tabContents.forEach(tabContent => {
+          tabContent.classList.remove('active')
+        })
+        tabs.forEach(tab => {
+          tab.classList.remove('active')
+        })
+        tab.classList.add('active')
+        target.classList.add('active')
+      })
+    })
+
+
+    document.addEventListener('click', e =>{
+    const isDropdownButton = e.target.matches("[data-dropdown-button]")
+    if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return
+
+    let currentDropdown
+    if (isDropdownButton){
+      currentDropdown = e.target.closest('[data-dropdown]')
+      currentDropdown.classList.toggle('active')
+    }
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+      if (dropdown == currentDropdown) return
+      dropdown.classList.remove('active')
+    })
+  })
+  </script>
+</body>
+</html>

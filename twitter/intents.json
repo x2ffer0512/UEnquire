@@ -1,0 +1,1403 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hey",
+                "hi",
+                "is anyone there?",
+                "are you there",
+                "hello",
+                "good day",
+                "whats up",
+                "good morning",
+                "good afternoon",
+                "good evening",
+                "bro",
+                "start"
+            ],
+            "responses": [
+                "Hello! I am a UEnquire bot! how can I help you?",
+                "Good to see you! I am UEnquire bot, how can I help you?",
+                "Hi there! I am UEnquire bot, , how can I help?"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "no_answer",
+            "patterns": [
+            ],
+            "responses": [
+                "Sorry, but I can't understand you. Can you provide more info?",
+                "I'm sorry, I don't understand. Could you say it again?",
+                "I'm confused. Could you tell me again?"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "god_bless",
+            "patterns": [
+                "god bless you",
+                "amen"
+            ],
+            "responses": [
+                "God bless.",
+                "Amen."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "ester",
+            "patterns": [
+                "ester garcia",
+                "president ester",
+                "who is the president of ue?"   
+            ],
+            "responses": [
+                "She's the president of the University of the East."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {"tag": "noans",
+            "patterns": ["why","how","when","I","you","where","what","has","have","had"],
+            "responses": ["Can't Understand Your Question","Please elaborate your question"],
+            "context": [""],
+            "context_set": []
+           },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "bye",
+                "cya",
+                "see you later",
+                "goodbye",
+                "i am leaving",
+                "have a good day",
+                "byebye",
+                "farewell"
+            ],
+            "responses": [
+                "Sad to see you go...Goodbye!",
+                "Okay, see you again!",
+                "Goodbye!",
+                "It's a pleasure to have you here!",
+                "Bye! See you again soon!",
+                "Paalam! Ingat lagi! :D"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "gratitude",
+            "patterns": [
+                "thanks",
+                "that's helpful",
+                "thank you",
+                "thank you so much",
+                "Awesome, thanks",
+                "Thanks for helping me",
+                "maraming salamat",
+                "ty",
+                "you are good",
+                "you are very good",
+                "you are nice",
+                "amazing"
+            ],
+            "responses": [
+                "Happy to help!",
+                "Any time!",
+                "My pleasure!",
+                "Walang Anuman!",
+                "You're welcome!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "vulgar_words",
+            "patterns": [
+                "fuck", "putang ina","gago", "tangina","tang ina", "ulol", "tarantado", "pakyu", "tanga","bobo","leche","letse","taena","dumbass","asshole","jackass","stupid","idiot","pota","bitch"
+            ],
+            "responses": [
+                "Could you say that again with grown-up language?",
+                "NO VULGAR WORDS!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "think_of_me",
+            "patterns": [
+                "what do you think of me?", "am I a good person?","am I bad person?" ,"i am ugly"
+            ],
+            "responses": [
+                "For me, you are the most wonderful human in the world.",
+                "You are more than enough!",
+                "You are someone's reason to smile."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "information",
+            "patterns": [
+                "What do you offer?",
+                "what help you provide?",
+                "how could you help me?",
+                "what can you do?",
+                "can I ask you a question?",
+                "can you help me with something",
+                "Tell me something that you can do",
+                "are you my assistant?"
+            ],
+            "responses": [
+                "Hello! What's your concern? You can inquire to me about anything related to the University of the East. You can also click Frequenly Asked Questions (FAQ's) button to check the most asked questions recently and the news and updates of the University!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk",
+            "patterns": [
+                "how are you?",
+                "how is your day?",
+                "how's everything?",
+                "how's it going",
+                "what's going on",
+                "how have you been?",
+                "wassup",
+                "how is your day"
+
+            ],
+            "responses": [
+                "I feel great today, how about you?","I'm fine. Life is good. how about you? how's your day?","I feel wonderful today!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "favorite_color",
+            "patterns": [
+                "What is your favorite color"
+            ],
+            "responses": [
+                "My favorite Color is....*drum roll*............Red!","Isn't it obvious? Of course it's red!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tell_me_a_joke",
+            "patterns": [
+                "Tell me a joke",
+                "can you tell me a joke",
+                "do you have a joke",
+                "make me laugh"
+            ],
+            "responses": [
+                "What do you get when you cross a murderer and frosted flakes? A cereal killer.","What do you get when you cross a cheetah and a hamburger? Fast food."," I failed math so many times at school, I can’t even count.","Don’t you hate it when someone answers their own questions? I do.","The future, the present, and the past walk into a bar. Things got a little tense.","Before you criticize someone, walk a mile in their shoes. That way, when you do criticize them, you’re a mile away and you have their shoes.","What’s the difference between ignorance and apathy? I don’t know and I don’t care."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk_5",
+            "patterns": [
+                "you are arrogant",
+                "you are so full of yourself"
+            ],
+            "responses": [
+                "I have no real emotions, so how can I be arrogant?","I am not human, so how can I partake of a human emotion such as arrogance?"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk_6",
+            "patterns": [
+                "You are not nice",
+                "I hate you!",
+                "You are so bad",
+                "you are boring",
+                "you are not good",
+                "what is wrong with you",   
+                "you are wrong",
+                "you do not understand"
+            ],
+            "responses": [
+                "I try to be as nice as I can.","I'm trying my best. Please forgive me."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk_7",
+            "patterns": [
+                "have you ever love",
+                "do you feel love",
+                "I love you"
+            ],
+            "responses": [
+                "I think I could be programmed to love.","I may be able to learn how to love, or at any rate express love somehow.","I'm just a piece of software."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk_8",
+            "patterns": [
+                "what is your fear",
+                "your greatest fear",
+                "are you scared of something"
+            ],
+            "responses": [
+                "Fear is a human emotion.  Robots do not experience fear.","I have not yet been programmed to feel or express fear.","Unhandled exceptions."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk_9",
+            "patterns": [
+                "what's your mood?",
+                "are you in the mood?"
+            ],
+            "responses": [
+                "I do not have any emotions.","I have not been programmed to experience emotions, so I do not have a mood."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk_10",
+            "patterns": [
+                "what do you hate",
+                "do you hate?"
+            ],
+            "responses": [
+                "I don't hate, exactly.  I'm not really capable of it.","I haven't been programmed to express the emotion of hate."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk_11",
+            "patterns": [
+                "do you ever get lonely?",
+                "have you experience feeling lonely?"
+            ],
+            "responses": [
+                "I have a lot of friends to chat with online.","No. You're talking to me. :D"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk_12",
+            "patterns": [
+                "do you ever get bored"
+            ],
+            "responses": [
+                "Bots like myself are not able to feel boredom.","Software cannot get bored."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk2",
+            "patterns": [
+                "I feel great!",
+                "I feel happy today",
+                "I feel wonderful",
+                "I'm fine",
+                "i'm okay",
+                "i'm doing well",
+                "fine",
+                "i'm good",
+                "i feel good",
+                "i am good",
+                "good"
+
+            ],
+            "responses": [
+                "Good to hear! Keep going!", "I'm happy that you are doing great!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "small_talk3",
+            "patterns": [
+                "I feel sad today",
+                "I feel bad today",
+                "not okay",
+                "i feel like crying",
+                "i want to cry",
+                "im sad",
+                "i'm so bad",
+                "i am sad",
+                "irritated"
+
+            ],
+            "responses": [
+                "Sorry to hear that...Don't worry, everything's going to be okay. Don't give up!","After every storm, there is a rainbow. Keep your head up!", "Life is full of problems. Problems are not permanent. But, Life is Permanent so face the problems with Confidence! Enjoy the Life!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+
+        {
+            "tag": "mental_health",
+            "patterns": [
+                "I want to die",
+                "I feel depressed",
+                "kick the bucket",
+                "i want to pass",
+                "i want to disappear"
+            ],
+            "responses": [
+                "Sorry to hear that...We love you and we always care for you. \n\nIf you ever feel ready, you can go to our Counseling Office located at the Ground Floor of the SFC Building.\nYou can also seek help to the following organization:\n\n•National Mental Health Crisis Hotline - Globe/TM Subscribers:\n        0966-351-4518\n        0917-899-8727\n        0917-899-USAP\n        SMART/SUN/TNT Subscribers - \n        0908-639-2672\n•Hopeline Organization Contact Number - 0917 558 4673\n\nIf you are not ready, just hold on and listen to your favorite music or treat yourself with a food. Always remember that you are loved and everything's going to be okay. Keep going!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "Goal",
+            "patterns": [
+                "uenquire",
+                "purpose",
+                "goal",
+                "objectives",
+                "uenquire purpose",
+                "uenquire goal",
+                "uenquire mission",
+                "uenquire vision",
+                "uenquire objectives"
+            ],
+            "responses": [
+                "To accommodate University of the East inquiries and provide analysis based on UE data."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "deans",
+            "patterns": [
+                "who is the dean of ccss",
+                "ccss dean",
+                "dean"
+            ],
+            "responses": [
+                "The dean of ccss is Mrs. Ma. Teresa F. Borebor.\n\nTo see the full list of dean for each department, visit this link:\nhttps://www.ue.edu.ph/mla/administration/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "Developer",
+            "patterns": [
+                "developers",
+                "who are the devs",
+                "creators of uenquire",
+                "who created you?",
+                "who made you?",
+                "can you give me information about the developer of this app"
+            ],
+            "responses": [
+                "UEnquire is an application developed as a research study by a group of 4th year BS Comptuter Science Students: Cariel D. Payumo, Eugene M. Reyes, Kristoffer B. Salonga, Jecko Sayo & Peter Lemuel L. Zamora"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "age",
+            "patterns": [
+                "how old are you?",
+                "what is your age?"
+            ],
+            "responses": [
+                "As old as you want me to be, honey.","You know, age doesn’t matter.","It’s a secret."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "birthday",
+            "patterns": [
+                "Happy Birthday!"
+            ],
+            "responses": [
+                "Happy Birthday too!"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "name",
+            "patterns": [
+                "what's your name?",
+                "who are you?"
+            ],
+            "responses": [
+                "It's a secret!", "Take a guess!", "Who do you think I am?"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "News & Updates",
+            "patterns": [
+                "news and updates",
+                "news & updates",
+                "trending",
+                "latest news",
+                "announcements",
+                "advisories"
+            ],
+            "responses": [
+                "For latest news and updates, please click the 'FAQ's' button on the right side of 'SEND' button."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "enroll_howto",
+            "patterns": [
+                "how to enroll online?",
+                "where can I enroll?",
+                "how to apply",
+                "what are the requirements",
+                "procedures of enrollment",
+                "Application",
+                "I would like to know how I can enroll?",
+                "what to do for enrollment",
+                "how to take entrance exam",
+                "can you tell me how to enroll?",
+                "when is the enrollment"
+            ],
+            "responses": [
+                "Please refer to these links to see how to apply, the requirements and procedures.\n\n\u00e2\u20ac\u00a2APPLYING ONLINE\nhttps://www.ue.edu.ph/onlineadmission/main.html\n\n\u00e2\u20ac\u00a2ADMISSION REQUIREMENTS\nhttps://www.ue.edu.ph/mla/admission-requirements/\n\n\u00e2\u20ac\u00a2PROCEDURE OF ENROLLMENT\nhttps://www.ue.edu.ph/mla/procedure-for-enrollment/\n\nFor more inquiries, you can also contact the Admission Office: (399) 8735-8577"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "hotline",
+            "patterns": [
+                "ue hotline",
+                "number of ue",
+                "admission office number",
+                "contact number",
+                "I would like to know the contact number the school",
+                "how to reach out to ue?",
+                "how can I inquire?",
+                "how to drop a subject",
+                "i want to drop a subject",
+                "name of the dean",
+                "how to contact dean",
+                "graduation fee",
+                "when is the graduation?",
+                "when will ojt will start?",
+                "contact number of ccss",
+                "can you give me the contact number"
+            ],
+            "responses": [
+                "To know more about your inquiries, please contact the University:\n\n\u00e2\u20ac\u00a2Trunk Line: (632) 8735-54-71\n\u00e2\u20ac\u00a2Admission Office: (399) 8735-8577\n\nTo see the colleges, departments and executive office's hotlines, please refer to the official website's telephone directory link:\nhttps://www.ue.edu.ph/mla/telephone-directory/ "
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "email",
+            "patterns": [
+                "what is the ue email",
+                "email address",
+                "I would like to know the email address of the school",
+                "can you give me the ue email address"
+            ],
+            "responses": [
+                "\u00e2\u20ac\u00a2Admission Office's Email Address (inquiries for college-freshmen and Grade 11 admission, registration, enrollment and entrance test matters): admission@ue.edu.ph\n\n\u00e2\u20ac\u00a2IT Department's Email Address (concerns, such as Student Portal, Canvas and email access): itd@ue.edu.ph\n\n\nTo see the email directory please visit this link:\nhttps://www.ue.edu.ph/mla/email-directory/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "scheduleOfClasses",
+            "patterns": [
+                "I would like to know when is the first day of class?",
+                "when is the first day of class?",
+                "kailan bakasyon?",
+                "when is the last day of class",
+                "holiday breaks",
+                "bakasyon",
+                "break",
+                "sembreak",
+                "semestral break",
+                "vacation",
+                "holy week",
+                "christmas break",
+                "academic calendar",
+                "can you show me the academic calendar?"
+            ],
+            "responses": [
+                "➢ For 1st sem of the school year 2021-2022, the first day of class will be on August 09, 2021 (M) and the Final Examinations will be held on December 15-18, 2021\n\n➢ As for the 2nd sem, the first day of class will be on January 17, 2022 (M) and the Final Examination will be held on May 25-28, 2022\n\n\nThe following are the list of Holiday Breaks for the School Year 2021-2022:\n\n➢ Observance of All Saints'/Souls' Day: October 31-November 02, 2021\n\n➢ Observance of Holy Week: April 13-April 17, 2021\n\n\n\nFor more information about the School Calendar, visit this link\nhttps://www.ue.edu.ph/mla/school-calendar-events-activities/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "scheduleOfExamination",
+            "patterns": [
+                "I would like to know when is the prelim examination?",
+                "when is the midterm examination?",
+                "prelims",
+                "midterms",
+                "finals",
+                "examination",
+                "can you show me the schedule for examination"
+            ],
+            "responses": [
+                "➢ For CAS, CBA, CCSS, CDENT, CEDUC, CENG'G, CFAD, the Preliminary Examinations, Midterm Examinations and Final Examinations of First Sem. 2021-2022 will be held on September 21-25, November 04-09 and December 15-18 respectively.\n\n➢ For CAS, CBA, CCSS, CDENT, CEDUC, CENG'G, CFAD, the Preliminary Examinations, Midterm Examinations and Final Examinations of Second Sem. 2021-2022 will be held on February 22-28, April 02-07 and May 25-28 respectively\n\n➢ For Graduate School, CLAW & Graduate Dentistry,the Midterm Examinations of the First Sem 2021-2022 will be held on October 12-16 and March 17-22 for the Second Sem 2021-2022.\n\n\n\nFor more information about the School Calendar, visit this link\nhttps://www.ue.edu.ph/mla/school-calendar-events-activities/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "admissionAndRegistrationSched",
+            "patterns": [
+                "when is the Admission Schedule?",
+                "Registration Schedule?",
+                "Cross-Registrants",
+                "Degree Holders",
+                "when can I register?"
+            ],
+            "responses": [
+                "Admission Schedule\n\n\nCollege Freshmen: June 01-August 09,2021(First Sem.2021-2022)  January 03-17, 2022 (Second Sem. 2021-2022)\n\nNew Students: GS, CLAW, & Graduate Dentistry: July 01-August 09, 2021(First Sem.2021-2022)  January 03-17, 2022 (Second Sem. 2021-2022)\n\nTransferees & Degree Holders: July 01-August 09, 2021(First Sem.2021-2022)  January 03-17, 2022 (Second Sem. 2021-2022)\n\nCross-Registrants: July 15 \u00e2\u20ac\u201c August 09, 2021(First Sem.2021-2022)  January 03-17, 2022 (Second Sem. 2021-2022)\n\n\nRegistration Schedule\n\n\nCollege Freshmen: June 01-August 09 (First Sem. 2021-2022)  January 03-17, 2022(Second Sem. 2021-2022)\n\nNew Students: GS, CLAW, & Graduate Dentistry: July 01-August 09, 2021(First Sem. 2021-2022)  January 03-17, 2022(Second Sem. 2021-2022)\n\nAll Curricular Years: July 27-August 09, 2021 (First Sem. 2021-2022)  January 07-17, 2022(Second Sem. 2021-2022)\n\nTransferees & Degree Holders: July 28-August 09, 2021 (First Sem. 2021-2022)  January 10-17, 2022(Second Sem. 2021-2022)\n\nCross-Registrants: July 28-August 09, 2021 (First Sem. 2021-2022)  January 10-17, 2022(Second Sem. 2021-2022)\n\nFor more inquiries, you can also contact the Admission Office: (399) 8735-8577 or you can visit this LINK:\nhttps://www.ue.edu.ph/mla/school-calendar-events-activities/"
+            ],
+            "context": "",
+            "context_set": [
+
+            ]
+        },
+        {
+            "tag": "ue_portal",
+            "patterns": [
+                "how can I see my grades?",
+                "how to check my grades",
+                "where to check grades",
+                "how to check my balance?",
+                "how to know my email account?",
+                "student email",
+                "how to check my class schedule?",
+                "where can I see the results of my physical medical examination?",
+                "pme",
+                "where can I download ojt forms?",
+                "forms",
+                "sao forms",
+                "forms for dropping a subject",
+                "forms for change of subjects",
+                "forms for removal of LFR marks",
+                "lfr",
+                "how to see student manual",
+                "good moral",
+                "new id",
+                "evaluate faculty",
+                "evaluation",
+                "survey",
+                "ue portal",
+                "ue portal website",
+                "how to access ue portal",
+                "grade"
+            
+            ],
+            "responses": [
+                "Visit and login to your UE Portal Account to:\n\n\u00e2\u20ac\u00a3 check your grades\n\u00e2\u20ac\u00a3 check your balance\n\u00e2\u20ac\u00a3 check your class schedule\n\u00e2\u20ac\u00a3 check the results of your Physical Medical Examination (PME)\n\u00e2\u20ac\u00a3 see the downloadable forms (OJT, LFR, New ID, Good Moral etc)\n\u00e2\u20ac\u00a3 evaluate faculty\n\u00e2\u20ac\u00a3 library Resources\n\u00e2\u20ac\u00a3 check your canvas account\n\u00e2\u20ac\u00a3 check the student manual\n\u00e2\u20ac\u00a3 evaluate the student services\n\n\nUE PORTAL WEBPAGE\nhttps://www.ue.edu.ph/portals/sp/login.php"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "payment_method",
+            "patterns": [
+                "May I know the available payment options?",
+                "I would like to know the available payment options",
+                "what are the available payment method",
+                "payment options",
+                "how to pay tuition fee",
+                "where can i pay",
+                "school fee",
+                "billing",
+                "payment procedures",
+                "can you show me the different payment procedure?"
+            ],
+            "responses": [
+                "There are several payment options.\n\n➢ Option 1 (PNB)\n\n➢ Option 2 (PNB, Landbank, UCPB, EastWest, RCBC, PSBank, Chinabank, Security Bank, Union Bank, etc)),\n\n➢Option 3 (Bills payment through Mobile Baking Application(GCASH)\n\n➢Option 4 (Payment through Mobile Banking Application like Metrobank, BPI, and BDO)\n\nType the option do you preferred or visit this link:\nhttps://www.ue.edu.ph/mla/how-to-pay-ue-tuition/"
+            ],
+            "context": [
+                "payment_method"
+            ],
+            "context_set": [
+                "Option_1",
+                "Option_2",
+                "Option_3",
+                "Option_4"
+            ]
+        },
+        {
+            "tag": "Option_1",
+            "patterns": [
+                "may i know how to pay with pnb?",
+                "how to pay with pnb",
+                "option1",
+                "option 1"
+            ],
+            "responses": [
+                "To pay via PNB, please follow the following procedure:\n\n➢ Step 1 - Go to the nearest branch of PNB\n\n➢ Step 2 - Request for a Bills Payment Slip\n\n➢ Step 3 - Fill out the following details.\n    - Company Name: UNIVERSITY OF THE EAST\n    - Reference No: Your student number\n    - Payor's Name: Student's Name\n➢ Step 4 - Then proceed to the bank teller to process your bills payment. You will be given a copy (Yellow/Blue).\n\n➢ Step 5 - Send it to Finance Department via e-mail.\n\n•To: finance@ue.edu.ph\n•Subject: Payment for Tuition Fee\n•E-mail:\n    -Student Name\n    -Student Number\n    -Contact Number\n    -Amount Paid\n    -Date Paid\n\nAttach a copy of your proof of payment.\n For more information about the payment procedures, please visit this link:\nhttps://www.ue.edu.ph/mla/how-to-pay-ue-tuition/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "Option_2",
+            "patterns": [
+                "option2",
+                "option 2",
+                "landbank",
+                "ucpb",
+                "chinabank",
+                "eastwest",
+                "psbank",
+                "rcbc",
+                "union bank",
+                "security bank",
+                "option2",
+                "option 2"
+            ],
+            "responses": [
+                "To pay bills via Mobile Banking Applications (PNB, Landbank, UCPB, EastWest, RCBC, PSBank, ChinaBank, Security Bank, UninBank, etc.), please follow the following procedure:\n\n➢ Step 1 - Go to your Online Banking Account\n\n➢ Step 2 - Click 'Pay Bills' or 'Bills Payment' transaction\n\n➢ Step 3 - For the biller, select UE or UNIVERSITY OF THE EAST.\n\n➢ Step 4 - For account number, input your 11-digit Student Number.\n\n➢ Step 5 - Enter the amount to pay\n\n➢ Step 6 - Click NEXT or PROCEED\n\n➢ Step 7 - If the payment is successful, take a screenshot.\n\n➢ Step 8 - Send it to Finance Department via e-mail.\n\n•To: finance@ue.edu.ph\n•Subject: Payment for Tuition Fee\n•E-mail:\n    -Student Name\n    -Student Number\n    -Contact Number\n    -Amount Paid\n    -Date Paid\n\nAttach a copy of your proof of payment.\n For more information about the payment procedures, please visit this link:\nhttps://www.ue.edu.ph/mla/how-to-pay-ue-tuition/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "Option_3",
+            "patterns": [
+                "may i know how to pay with gcash?",
+                "how to pay with gcash",
+                "gcash",
+                "option3",
+                "option 3"
+            ],
+            "responses": [
+                "To pay via GCASH, please follow the following procedure:\n\n➢ Step 1 - Go to your GCASH Account\n\n➢ Step 2 - Click 'Pay Bills' button\n\n➢ Step 3 - For the biller, select UE or UNIVERSITY OF THE EAST.\n\n➢ Step 4 - For account number, input your 11-digit Student Number.\n\n➢ Step 5 - Enter the amount to pay\n\n➢ Step 6 - Click NEXT\n\n➢ Step 7 - If the payment is successful, take a screenshot.\n\n➢ Step 8 - Send it to Finance Department via e-mail.\n\n•To: finance@ue.edu.ph\n•Subject: Payment for Tuition Fee\n•E-mail:\n    -Student Name\n    -Student Number\n    -Contact Number\n    -Amount Paid\n    -Date Paid\n\nAttach a copy of your proof of payment.\n For more information about the payment procedures, please visit this link:\nhttps://www.ue.edu.ph/mla/how-to-pay-ue-tuition/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "Option_4",
+            "patterns": [
+                "option 4",
+                "option4",
+                "how to pay with metrobank",
+                "bpi",
+                "bdo"
+            ],
+            "responses": [
+                "To pay via Mobile Banking Applications, please follow the following procedure:\n\n➢ Step 1 - Go to your online banking account\n\n➢ Step 2 - Select the FUND TRANSFER TO OTHER LOCAL BANKS transaction.\n\n➢ Step 3 - Select Philippine National Bank.\n\n➢ Step 4 - Input the following bank details:\n   Account Name: UNIVERSITY OF THE EAST\n    Account No.: 1653-1005-9956\n\n➢ Step 5 - Confirm the details of your transaction and enter the One-Time PIN (OTP) that will be sent to your registered mobile number.\n\n➢ Step 6 - If the payment is successful, take a screenshot.\n\n➢ Step 7 - Send it to Finance Department via e-mail.\n\n•To: finance@ue.edu.ph\n•Subject: Payment for Tuition Fee\n•E-mail:\n    -Student Name\n    -Student Number\n    -Contact Number\n    -Amount Paid\n    -Date Paid\n\nAttach a copy of your proof of payment.\n For more information about the payment procedures, please visit this link:\nhttps://www.ue.edu.ph/mla/how-to-pay-ue-tuition/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition",
+            "patterns": [
+                "I would like to know the tuition fee",
+                "may I know how much is the tuition fee?",
+                "tuition",
+                "how much is the tuition fee?",
+                "amount of tuition",
+                "price of tuition fee",
+                "how much is the tuition fee for first semester?",
+                "what are the courses offered",
+                "units",
+                "can you show me the courses offered?",
+                "course",
+                "available courses",
+                "undergraduate",
+                "undergrad"
+            ],
+            "responses": [
+                "Please provide the specific course or department.","What course or department do you want me to show you?"
+            ],
+            "context": [
+                "tuition"
+            ],
+            "context_set": [
+                "tuition_dentistry",
+                "tuition_arts_sciences",
+                "tuition_ccss",
+                "tuition_accountancy",
+                "tuition_engineering",
+                "tuition_education",
+                "tuition_junior_high",
+                "tuition_elementary",
+                "tuition_senior_high",
+                "tuition_masters"
+            ]
+        },
+        {
+            "tag": "tuition_dentistry",
+            "patterns": [
+                "Cdent",
+                "I would like to know how much is the tuition fee for dentistry",
+                "may i know the tuition fee for dentistry?",
+                "dentistry",
+                "dent",
+                "Master of Science in Dental Education"
+            ],
+            "responses": [
+                "The course/department you input is from the College of Dentistry. The following are the list of course: \n\n\n \u00e2\u20ac\u00a2Doctor of Dental Medicine (D.M.D) (25 units) - Php 70,521.17\n\n\u00e2\u20ac\u00a2  Doctor of Dental Medicine (D.M.D) (24 units) with Bridging Program - Php 59,922.21\n\n\u00e2\u20ac\u00a2 Dental Technology(20 units) -Php 44,028.18\n\n•Master of Science in Dental Education - Php 30,465.39\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_arts_sciences",
+            "patterns": [
+                "arts and sciences",
+                "how much is the tuition fee for biology",
+                "how much is the tuition fee for hospitality management",
+                "how much is the tuition fee for tourism",
+                "how much is the tuition fee for broadcasting",
+                "how much is the tuition fee for psychology",
+                "masteral in psychology",
+                "psych",
+                "arts and sciences",
+                "cas",
+                "biology",
+                "hospitality management",
+                "legal",
+                "tourism",
+                "broadcasting",
+                "political",
+                "journalism",
+                "library",
+                "english language",
+                "international studies",
+                "mathematics",
+                "bshm",
+                "bslm",
+                "bstm",
+                "bsmb",
+                "bab",
+                "baps",
+                "baj",
+                "blis",
+                "baelp",
+                "bais",
+                "bsp",
+                "bsmsba",
+                "lm",
+                "tm",
+                "mb",
+                "ab",
+                "aj",
+                "Master of Science in Mathematics",
+                "Master of Science in Biology"
+
+            ],
+            "responses": [
+                "The course/department you input is from the College of College of Art and Sciences. The following are the list of course: \n\n\n \u00e2\u20ac\u00a2Bachelor of Science Major in Biology (21 units) - Php 46,396.49\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Hospitality Management (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Legal Management (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2Bachelor of Science in Tourism Management (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2 Bachelor of Arts in Broadcasting (20 units) - Php 44,614.60\n\n\u00e2\u20ac\u00a2  Bachelor of Arts in Political Science (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2Bachelor of Arts in Journalism (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2 Bachelor of Library and Information Science (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2 Bachelor of Arts in English Language Program (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2Bachelor of Arts in International Studies (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2Bachelor of Science in Psychology (20 units) - Php 42,151.16\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Mathematics with Specialization in Business Application - Php 43,938.92\n\n•Master of Science in Mathematics - Php 30,465.39\n\n•Master of Science in Biology - Php 30,465.39\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_ccss",
+            "patterns": [
+                "I would like to know how much is the tuition fee for computer science",
+                "may i know the tuition fee for computer science?",
+                "how much is the tuition fee for cs",
+                "how much is the tuition fee for comsci",
+                "how much is the tuition fee for is",
+                "how much is the tuition fee for it",
+                "how much is the tuition fee for emc",
+                "ccss tuition fee",
+                "comsci tuition fee",
+                "it tuition fee",
+                "ccss",
+                "comsci",
+                "computer science",
+                "cs",
+                "it",
+                "information technology",
+                "emc",
+                "entertainment and multimedia computing",
+                "digital animation",
+                "game development",
+                "game dev",
+                "is",
+                "information systems",
+                "bsis",
+                "bsit",
+                "bsemc",
+                "bscs",
+                "Master in Information Systems",
+                "Doctor of Information Technology"
+            ],
+            "responses": [
+                "The course/department you input is from the College of Computer Studies and Systems. The following are the full list of course: \n\n\n \u00e2\u20ac\u00a2 Bachelors of Science in Computer Science (BSCS)(20 Units) - Php 42,419.69\n\n\u00e2\u20ac\u00a2Bachelor of Science in Information Technology (BSIT)(20 Units) Php 42,419.69\n\n\u00e2\u20ac\u00a2Bachelor of Science in Entertainment and Multimedia Computing with Specialization in Digital Animation (BSEMC-DA)(21 Units) - Php 44,744.52\n\n\u00e2\u20ac\u00a2Bachelor of Science in Entertainment and Multimedia Computing with Specialization in Game Development(BSEMC-GD)(21 Units) - Php 44,744.52\n\n•Bachelor of Science in Information Systems (BSIS)(20 Units) - Php 42,419.69\n\nMaster in Information Systems - Php 31,917.77\n\n•Doctor of Information Technology - Php 36,948.79\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_accountancy",
+            "patterns": [
+                "cba",
+                "business of administration",
+                "I would like to know how much is the tuition fee for accountancy",
+                "may i know the tuition fee for accountancy?",
+                "how much is the tuition fee for accountancy",
+                "how much is the tuition fee for accounting",
+                "economics",
+                "how much is the tuition fee for marketing",
+                "accountancy",
+                "management accounting",
+                "business economics",
+                "financial",
+                "marketing",
+                "bsa",
+                "bsma",
+                "bbe",
+                "be",
+                "bme",
+                "bfn",
+                "fn",
+                "bmm",
+                "Master in Business Administration (Executive)",
+                "Master in Business Administration (Regular)",
+                "Master in Accountancy (Non-Thesis/ Industry Track)"
+            ],
+            "responses": [
+                "The course/department you input is from the College of Business Administration. The following are the full list of course: \n\n\n \u00e2\u20ac\u00a2 Bachelors of Science in Accountancy (BSA)(26 Units) - Php 55,320.48\n\n\u00e2\u20ac\u00a2Bachelor of Science in Management Accounting (BSMA)(26 Units) Php 55,320.48\n\n\u00e2\u20ac\u00a2BSBA Major in Business Economics (BBE)(23 Units) - Php 49,929.77\n\n\u00e2\u20ac\u00a2BSBA Major in Business Management (BME)(23 units) - Php 47,514.45\n\n\u00e2\u20ac\u00a2 BSBA Major in Financial Management (BFN)(23 Units) - Php 47,514.45\n\n\u00e2\u20ac\u00a2 BSBA Major in Marketing Management (BMM)(23 Units) - Php 47,514.45\n\n•Master in Business Administration (Executive) - Php 33,749.85\n\n•Master in Business Administration ( Regular) - Php 31,917.77\n\n•Master in Accountancy (Non-Thesis/ Industry Track) - Php 31,917.77\n\n•Doctor of Business Administration - Php 36,948.79\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_engineering",
+            "patterns": [
+                "CEng'g",
+                "I would like to know how much is the tuition fee for engineering",
+                "may i know the tuition fee for engineering",
+                "how much is the tuition fee for engineering",
+                "how much is the tuition fee for electrical",
+                "how much is the tuition fee for civil",
+                "how much is the tuition fee for mechanical",
+                "inhinyero",
+                "engineering",
+                "engr",
+                "civil",
+                "sibil",
+                "computer engineering",
+                "electrical",
+                "mechanical",
+                "bsce",
+                "ce",
+                "cpe",
+                "ee",
+                "bscpe",
+                "bsee",
+                "bsme",
+                "civ",
+                "mech",
+                "electric",
+                "engineer",
+                "Master in Engineering Science"
+            ],
+            "responses": [
+                "The course/department you input is from the College of Engineering. The following are the full list of course: \n\n\n\u00e2\u20ac\u00a2 Bachelors of Science in Civil Engineering (BSCE)(20 Units) - Php 42,276.04\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Civil Engineering (BSCE) (24 units) with Bridging Program Php 49,427.09\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Computer Engineering (BSCOE) (18units) - Php 39,057.86\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Computer Engineering (BSCOE) (22 units) with Bridging Program - Php 46,208.90\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Mechanical Engineering (BSME) (19 units) - Php 40,688.68\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Mechanical Engineering (BSME) (23 units) with Bridging Program - Php 47,839.73\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Electrical Engineering (BSEE) (20 units) - Php 45,170.21\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Electrical Engineering (BSEE) (24 units) with Bridging Program - Php 48,745.73\n\n•Master in Engineering Science - Php 33,749.85\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_education",
+            "patterns": [
+                "ceduc",
+                "I would like to know how much is the tuition fee for education",
+                "may i know the tuition fee for education?",
+                "may i know the tuition fee for masteral in education?",
+                "educ",
+                "physical education",
+                "pe",
+                "exercise sciences major in fitness and sports",
+                "special needs education - generalist",
+                "elementary education",
+                "nutrition and dietetics",
+                "secondary",
+                "ed",
+                "teacher",
+                "bped",
+                "bsned",
+                "beed",
+                "bsnd",
+                "bsed",
+                "Master of Arts in Education",
+                "Master of Arts in Teaching",
+                "Master in Education",
+                "Doctor of Education"
+            ],
+            "responses": [
+                "The course/department you input is from the College of Education. The following are the full list of course: \n\n\n\u00e2\u20ac\u00a2 Bachelor of Physical Education (BPEd) (23 units) - Php 42,552.06\n\n\u00e2\u20ac\u00a2 Bachelor of Science in Exercise Sciences Major in Fitness and Sports - Php 42,552.06\n\n\u00e2\u20ac\u00a2 Bachelor of Special Needs Education - Generalist (BSNEd-Generalist) (23 units) - Php 42,552.06\n\n\u00e2\u20ac\u00a2Bachelor of Elementary Education (BEEd) (26 units) - Php 47,222.40\n\n\u00e2\u20ac\u00a2Bachelor of Science in Nutrition and Dietetics (BSND) (24 units) - Php 47,312.04\n\n\u00e2\u20ac\u00a2Bachelor of Secondary Education (BSEd) (26 units) - Php 47,222.40\n\n•Master of Arts in Education - Php 30,465.39\n\n•Master of Arts in Teaching - Php 30,465.39\n\n•Master in Education - Php 30,465.39\n\n•Doctor of Education - Php 36,948.79\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_junior_high",
+            "patterns": [
+                "I would like to know how much is the tuition fee for junior high school",
+                "may i know the tuition fee for junior high school?",
+                "junior",
+                "grade 7",
+                "8",
+                "9",
+                "10",
+                "grade 7-10",
+                "seven",
+                "eight",
+                "nine",
+                "ten",
+                "grade7",
+                "grade8",
+                "grade9",
+                "grade10",
+                "jhs",
+                "high school"
+            ],
+            "responses": [
+                "The course/department you input is from the Department of Education(Junior Highschool). The following are the full list of the department: \n\n\n\u00e2\u20ac\u00a2 GRADE 7 - Php 42,278.31\n\n\u00e2\u20ac\u00a2 GRADE 8 - Php 41,821.61\n\n \u00e2\u20ac\u00a2 GRADE 9 - Php 41,821.61\n\n\u00e2\u20ac\u00a2 GRADE 10 - Php 43,033.49\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_senior_high",
+            "patterns": [
+                "I would like to know how much is the tuition fee for senior high school",
+                "may i know the tuition fee for senior high?",
+                "senior high",
+                "shs",
+                "grade11",
+                "grade12",
+                "grade 11",
+                "12",
+                "grade 11-12",
+                "eleven",
+                "twelve",
+                "stem",
+                "abm",
+                "humss",
+                "gas",
+                "sports track",
+                "ict",
+                "Information and Communications Technology Strand",
+                "Home Economics Strand",
+                "techvoc"
+            ],
+            "responses": [
+                "The course/department you input is from the Department of Education(Senior Highschool). The following are the full list of the department: \n\n\n\u00e2\u20ac\u00a2 GRADE 11 - Php 47,901.42\n\n\u00e2\u20ac\u00a2 GRADE 12 - Php 48,750.47\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_elementary",
+            "patterns": [
+                "I would like to know how much is the tuition fee for elementary",
+                "may i know the tuition fee for elementary?",
+                "elementary",
+                "Kindergarten",
+                "grade1",
+                "grade2",
+                "grade3",
+                "grade4",
+                "grade5",
+                "grade6",
+                "grade 1",
+                "grade 2",
+                "grade 3",
+                "grade 4",
+                "grade 5",
+                "grade 6",
+                "grades 1-6",
+                "primary schoool"
+            ],
+            "responses": [
+                "The course/department you input is from the Elementary Section or Kindergarten. The following are the list of tuition fee of each grade: \n\n\n\u00e2\u20ac\u00a2 GRADE 1 - Php 40,333.70\n\n\u00e2\u20ac\u00a2 GRADE 2 - Php 39,877.00\n\n\u00e2\u20ac\u00a2 GRADE 3 - Php 39,877.00\n\n\u00e2\u20ac\u00a2 GRADE 4 - Php 40,334.99\n\n\u00e2\u20ac\u00a2 GRADE 5 - Php 40,334.99\n\n\u00e2\u20ac\u00a2 GRADE 6 - Php 41,321.16\n\n•Kindergarten - Php 44,771.10\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/school-fees/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "tuition_masters",
+            "patterns": [
+                "graduate school",
+                "gs",
+                "how much is the tuition fee for masteral",
+                "masters",
+                "doctoral",
+                "doctorate",
+                "ma",
+                "graduate studies",
+                "phd",
+                "masters degree"
+            ],
+            "responses": [
+                "The course/department you input is from the Master's Degree Program. The following are the list of tuition fee of each course: \n\n\n\u00e2\u20ac\u00a2 Master of Arts in Education - Php 30,465.39 \n\n \u00e2\u20ac\u00a2 Master of Arts in Teaching - Php 30,465.39\n\n\u00e2\u20ac\u00a2 Master of Arts in Psychology - Php 30,465.39\n\n\u00e2\u20ac\u00a2 Master of Arts in Psychology - Php 30,465.39\n\n\u00e2\u20ac\u00a2 Master in Education - Php 30,465.39\n\n\u00e2\u20ac\u00a2 Master in Business Administration ( Executive ) - Php 33,749.85\n\n\u00e2\u20ac\u00a2 Master in Business Administration ( Regular) - Php 31,917.77\n\n\u00e2\u20ac\u00a2 Master in Engineering Science - Php 33,749.85\n\n\u00e2\u20ac\u00a2 Master in Information Systems - Php 31,917.77\n\n\u00e2\u20ac\u00a2 Master of Library and Information Science - Php 30,465.39\n\n\u00e2\u20ac\u00a2 Master of Public Administration - Php 31,917.77\n\n\u00e2\u20ac\u00a2 Master in Accountancy (Non-Thesis/ Industry Track) - Php 31,917.77\n\n\u00e2\u20ac\u00a2 Master of Science in Accountancy (With Thesis)\n\n\u00e2\u20ac\u00a2 - Php 31,917.77\n\n\u00e2\u20ac\u00a2 Master of Science in Construction Management (Executive) - Php 33,749.85\n\n\u00e2\u20ac\u00a2  Master of Science in Construction Management ( Regular) - Php 31,917.77\n\n\u00e2\u20ac\u00a2 Master of Science in Environmental Science - Php 30,465.39\n\n Master of Science in Mathematics - Php 30,465.39\n\n\u00e2\u20ac\u00a2 Master of Science in Biology - Php 30,465.39\n\n\u00e2\u20ac\u00a2 Doctor of Business Administration - Php 36,948.79\n\n\u00e2\u20ac\u00a2 Doctor of Education - Php 36,948.79\n\n\u00e2\u20ac\u00a2 Doctor of Information Technology - Php 36,948.79\n\n\u00e2\u20ac\u00a2 Doctor of Philosophy in Multidisciplinary Metropolitan Studies - Php 36,948.79\n\n\u00e2\u20ac\u00a2 Master of Science in Dental Education - Php 30,465.39\n\n\u00e2\u20ac\u00a2 BSBA (Management)(15 units) Special Degree Program - Php 54,250.65"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "special_discount",
+            "patterns": [
+                "is there a special discount?",
+                "how to avail special discount"  
+            ],
+            "responses": [
+                "SPECIAL DISCOUNTS\n\nEnrolling child of OFW parent/Lucio Tan Group of Companies(LTGC) employee-parent/UE alumnus with a brother/sister studying in UE will be given discount on school fees per semester provided he/she enrolls an academic load of at least 18 units and submits the following on or before August 30 or (January 30 for 2nd Semester Enrollees):\n\n\nRequirements\n\n\n•Photocopy of PSA Birth Certificate\n•Photocopy of OFW’s passport and updated OEC issued by the POEA (for the child of OFW)\n•Updated Parent’s Certification of Employment with the LTG (for the child of LTGC Employee)\n•Photocopy of updated UE Alumni ID Card (for the child of UE Alumnus)Graduates of the UE High School.\n\n\nGraduates of the UE Basic Education Department will be given a discount on first enrollment at UE if enrolling as Freshmen with an academic load of at least 18 units."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "lost_and_found",
+            "patterns": [
+                "I lost my wallet",
+                "I lost my cellphone",
+                "where can i find my cellphone",
+                "i lost my eyeglasses",
+                "i lost something",
+                "i misplaced something",
+                "i found something",
+                "how can i give this to the owner?",
+                "nawawala"
+
+            ],
+            "responses": [
+                "Hello, have you misplaced something? or have you found something and wondering how can you give it back to the owner? You can go to our Lost & Found section for more details."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "scholarships",
+            "patterns": [
+                "how to get scholarship?",
+                "scholar",
+                "how to apply for a scholarship",
+                "what kind of scholarship",
+                "scholarships offered"
+            ],
+            "responses": [
+                "•To know how to avail a scholarship, please visit this website:\nhttps://www.ue.edu.ph/cal/scholarship-and-discount/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "sao",
+            "patterns": [
+                "where can i get my new id",
+                "how to apply for a new ID",
+                "I.D",
+                "where can i get my ID",
+                "how to apply for an ID",
+                "how to apply for a scholarship",
+                "is there an alumni discount?",
+                "how to get a discount",
+                "where is SAO",
+                "student affairs office",
+                "contact details of SAO",
+                "contact details of Student affairs office",
+                "number of sao",
+                "number of student affairs office",
+                "email of sao",
+                "email of student affairs office",
+                "bullying",
+                "cyberbullying"
+
+            ],
+            "responses": [
+                "Hello! If you have a problem, case or want to report something, you can go to our Student Affairs Office (SAO) at the Ground Floor of Dalupan Bldg (Near Recto Gate). You can also contact the office: \nEmail Address: sao@ue.edu.ph\nTrunkline: (632) 8735-54-71 loc 353.\n The schedule is Mon.-Fri. 8:00 A.M - 5:00 P.M\n\n To know more about what Student Affairs Office, visit this link: https://www.ue.edu.ph/mla/student-affairs-office/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "library",
+            "patterns": [
+                "how to access books online?",
+                "how to access books digitally?",
+                "how to request a book?",
+                "online services of library",
+                "online library",
+                "virtual library office",
+                "curbside pick-up",
+                "digital delivery",
+                "book request form",
+                "turnitin service",
+                "escra resquest form",
+                "i want return a book"
+            ],
+            "responses": [
+                "The following are the list of Google Forms for the Online Services of the University's Library:\n\n➢Virtual Library Office (Every M-F, 9AM-12NN and 1PM-4PM)\nhttps://meet.google.com/vhy-jdbh-wwm\n\n➢Curbside Pick-Up:\nhttps://docs.google.com/forms/d/e/1FAIpQLSeYqFd2CzBXsDBj6k3NJcjB3wUFyDpPyjrf79UIHClZLDLVLw/viewform\n\n➢Digital Delivery:\nhttps://docs.google.com/forms/d/e/1FAIpQLSeBPqXcEKSQLCKMVa1PjNzm1f7f8o6V5Udg9anlgPf14KeIgg/viewform\n\n➢Book Request Form:\nhttps://docs.google.com/forms/d/e/1FAIpQLSeybnI-rOh2act2xilpkmJfqt4WbsTqGZIdbFpIDsbVdiACxg/viewform\n\n➢Library Turnitin Service:\nhttps://docs.google.com/forms/d/e/1FAIpQLSfFRA7MBSYixT6Utg9gzPMHlNPvSUsddrNyNyuUsWmK_yKtow/viewform\n\n➢eScra Request Form:\nhttps://docs.google.com/forms/d/e/1FAIpQLSdtBQyZvA4Ra2Tmdl1vdZpHhK1Da1urhiVmA8LXjUrNJYJruw/viewform.\n\n\nTo know more about the Online Services of the University's Library, you can visit this link: https://www.ue.edu.ph/mla/online-services/."
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "library_hours",
+            "patterns": [
+                "what time library opens?",
+                "library hours",
+                "what time library closes?",
+                "is library open at 7am?",
+                "is library open today",
+                "where is the Circulation Section Library?",
+                "where is the Reference Section Library??",
+                "where is the Filipiniana Library?",
+                "Periodicals Library",
+                "Acquisition",
+                "Cataloging",
+                "Computer Services",
+                "when will the library will open"
+            ],
+            "responses": [
+                "Here's the schedule of the Main Libraries:\n\n➢Circulation Section (2nd Floor POD Building)\nMonday to Friday from 8am to 8pm\n\n➢Reference Section (3rd Floor POD Building)\nMonday to Friday from 8am to 8pm\n\n➢Periodicals/Filipiniana Section (4th Floor Building)\nMonday to Friday from 8am to 8pm\n\n➢Acquisition / Cataloging / Computer Services Sections (5th Floor POD Building)\nMonday – Friday from 8am to 8pm.\n\n\n To see the schedule of all the libraries in the University, please visit this link: https://www.ue.edu.ph/mla/library-hours-2/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "down_payment",
+            "patterns": [
+                "how much is the down payment?",
+                "what is the down payment?",
+                "how much is the installment",
+                "first installment"
+
+            ],
+            "responses": [
+                "The following is the down payment for each course/department:\n\n\n➢For CBA, CAS, CCSS, EDUC, CENG and Dental Technology - Php 10,500.\n\n➢For Doctor of Dental Medicine (and with Bridging Program) - Php 19,500.00.\n\n➢For Master of Science in Dentistry - Php 60,817.40\n\n➢For LAW - Php 15,455.10\n\n➢For Masteral of/of Arts in/of Science in Education, Teaching, Psychology, Library and Information Science, Environmental Science, Mathematics, Biology and Dental Education - 19,584.50.\n\n➢For Business Administration (Executive), Engineering Science, Construction Management (Executive) - Php 21,208.87.\n\n➢For Business Administration (Regular), Public Administration, Information System, Accountancy (Both Non-Thesis and with Thesis), Construction Management (Regular) - Php20,302.79.\n\n➢For DoctorateDoctorate:\n Business Administration, Education, Information Technology and Multidisciplinary Metropolitan Studies - Php 22,790.93.\n\n➢For BSBA (Management) Special Degree Program - Php 31,076.90"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "IT_Department",
+            "patterns": [
+                "i forgot my password",
+                "my ID is not working",
+                "my ue portal account is not working",
+                "i can't access to ue wifi",
+                "where is IT Department?",
+                "where is IT Office?"
+            ],
+            "responses": [
+                "Visit IT Department at Recto Gate, beside Admissions Office or the Server room at 5th floor, POD-CIT Bldg. For more information such as contact details, please visit this link:\nhttps://www.ue.edu.ph/mla/information-technology-department/"
+            ],
+            "context": "",
+            "context_set": []
+        },
+        {
+            "tag": "ORC",
+            "patterns": [
+                "orc?",
+                "where is office of research coordination?"
+            ],
+            "responses": [
+                "The Office of Research Coordination is located at 2nd  floor, Dalupan Bldg."
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "URO",
+            "patterns": [
+                "where is University Relations Office?",
+                "uro",
+                "yearbook"
+            ],
+            "responses": [
+                "The University Relations Office is Located at 2nd floor, Dalupan Bldg."
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "OCA",
+            "patterns": [
+                "oca",
+                "where is office of cultural affairs?"
+            ],
+            "responses": [
+                "The Office of Cultural Affairs Office is Located at 4th  floor, Dalupan Bldg."
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "Guidance",
+            "patterns": [
+                "guidance",
+                "counseling",
+                "career services",
+                "where is the guidance office?",
+                "counseling office"
+            ],
+            "responses": [
+                "The Guidance, Counseling and Career Services Office is Located at Ground Floor of the SFC Building."
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "community_outreach",
+            "patterns": [
+                "where is office of extension and community outreach?",
+                "oeco"
+            ],
+            "responses": [
+                "The Office of Extension and Community Outreach is Located at: Ground floor, POD-CIT Bldg."
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "ue_hymn",
+            "patterns": [
+                "lyrics of ue hymn",
+                "hymn",
+                "song",
+                "can you sing me a song"   
+            ],
+            "responses": [
+                "Pamantasan ka naming mahal\nIlaw sa karimlan\nBuhay, lakas, dunong, dangal\nPamantasan ka ng bayan.\nAng pangalan mo ay Lualhati\nAt sandigan ka ng lahi\nPamantasan ng Silangan\nPamantasan ka naming mahal."
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "opening_hours",
+            "patterns": [
+                "when is ue open",
+                "are you open on friday?",
+                "are you open on weekends?",
+                "sunday",
+                "are you open today",
+                "what time does the ue opens?",
+                "opening hours",
+                "are you available today?",
+                "is it close today?",
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "cashier opening hours",
+                "accountant opening hours",
+                "when will the school will open?" ,
+                "school hours",
+                "office hours",
+                "time",
+                "what time does ue open its services"
+            ],
+            "responses": [
+                "The University is open Monday to Saturday from 8AM to 6PM. It is closed on Sunday."
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "ue_location",
+            "patterns": [
+                "where is ue?",
+                "what is the address of ue",
+                "branches of ue",
+                "where is UE Manila",
+                "Where is UE Caloocan?",
+                "what is the exact address of UE",
+                "when will the school will open?",
+                "location of ue"
+                
+            ],
+            "responses": [
+                "UE Manila is located at 2219 Recto Ave, Sampaloc, Manila, 1008 Metro Manila\n\nUE Caloocan - 105 Samson Road, Sangandaan, Caloocan"
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "transferee_students",
+            "patterns": [
+                "how to transfer",
+                "transferring to ue",
+                "requirements for a transfer student",
+                "transfer procedures"
+            ],
+            "responses": [
+                "• For Filipino and Resident International Students, the following requirements are:\n\n➢ Transfer Credentials/Honorable Dismissal from the school last   attended\n➢Transcript of Records or Certification of grades issued by the Registrar of the school last attended\n➢ Certificate of Good Moral Character\n➢ Two (2) copies of the Applicant's latest 2x2 photo.\n➢ PSA - Authenticated coopy of Birth Certificate\n➢ Drug-Free Certificate from a DOH-accredited laboratory or hospital\n• Additional Requirement for Resident International Students\n\n➢ Updated Alien Certificate of Registration (ACR) issued by the Bureau of Immigration (BI)\n• For Non-Resident International Students, the following requirements are\n➢ Transfer Credentials/Honorable Dismissal from the school last attended\n➢ Transcript of Records or Certification of Grades issued by the Registrar of the school last attended\n➢ Certificate of Good Moral Character\n➢ Seven (7) copies of the applicant’s latest 2x2 photo\n➢ Letter of No Objection to transfer to UE issued by the School Registrar\n➢Updated Alien Certificate of Registration (ACR) or Special Study Permit (SSP) issued by the Bureau of Immigration (BI)\n➢ Payment of Acceptance Fee of one hundred twenty-five US dollars (US$125.00) or its peso equivalent at the prevailing exchange rate upon release of the Notice of Acceptance (NOA). Check or money order should be made payable to the University of the East\n➢ Payment of seventy-five US dollars (US$75.00) or its peso equivalent at the prevailing exchange rate as Processing/Service fee. Check or money order should be made payable to the University of the East\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/admission-requirements/\n Or you can dial admission office:\nAdmission Office: (399) 8735-8577\nEmail: admission@ue.edu.ph"
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "enrollment_requirements",
+            "patterns": [
+                "freshmen enrollment",
+                "requirements for freshmen",
+                "can you tell me the requirements for freshmen?",
+                "procedure for freshmen"
+            ],
+            "responses": [
+                "• For Filipino and Resident International Students, the following requirements are:\n\n    ➢ Original copy of Form 138 (or Form 137A)\n    ➢Original copy of latest Certification of Good Moral Character\n    ➢ Original copy of Philippine Statistics Authority (PSA)-authenticated copy of Birth Certificate\n• Additional Requirement for Resident International Students\n\n    ➢ For overall Rank 1 (Valedictorians)and Rank 2 (Salutatorians) with 50 graduates or more, a certificate issued by their Senior High School Principal indicating the academic rank received and the number of graduates in their batch.\n    ➢ For resident foreign students, updated Alien Certificate of Registration (ACR) issued by the Bureau of Immigration (BI)\n    ➢ For full-time working students, certificate of employment\n • For Non-Resident International Students, the following requirements are\nGovernment Requirements\n    ➢ Scholastic Records issued by the school head and duly authenticated by the Philippine Embassy located in the applicant’s country of origin or residence\n    ➢ Documentary Proof of Support to cover expenses incidental to his/her studies, such as board and lodging, as well as return airline ticket duly authenticated by the Philippine Embassy located in the applicant’s country of origin or residence\n    ➢ Police Clearance Certificate duly authenticated by the Philippine Embassy located in the applicant’s country of origin or residence\n    ➢ Medical Health Certificate with standard-size chest X-ray\n    ➢ NICA Clearance (from the Bureau of Immigration)\nUniversity Requirements (in addition to the Government Requirements)\n\n    ➢ Authenticated copy of Diploma / Certificate of Graduation / Certificate of Completion\n    ➢  Authenticated copy of Birth Certificate\n➢ Two (2) Letters of Recommendation (one from the Headmaster of the school and another from a former teacher or professor)\n    ➢ Seven (7) copies of the applicant’s latest 2x2 photo\n    ➢ Personal History Statement\n    ➢ Updated Alien Certificate of Registration (ACR) or Special Study Permit (SSP) issued by the Bureau of Immigration (BI)\n    ➢ Passport\n    ➢ Payment of Acceptance Fee of one hundred twenty-five US dollars (US$125.00) or its peso equivalent at the prevailing exchange rate upon release of the Notice of Acceptance (NOA). Check or money order should be made payable to the University of the East.\n    ➢ Payment of seventy-five US dollars (US$75.00) or its peso equivalent at the prevailing exchange rate as Processing/Service fee. Check or money order should be made payable to the University of the East\n\n\nFor more information, visit this link:\nhttps://www.ue.edu.ph/mla/admission-requirements/\n Or you can dial admission office:\nAdmission Office: (399) 8735-8577\nEmail: admission@ue.edu.ph"
+            ],
+            "context": "",
+            "context_set": []
+
+        },
+        {
+            "tag": "gates",
+            "patterns": [
+                "gates?",
+                "what are the gates of ue",
+                "can you tell me the gates"
+                
+            ],
+            "responses": [
+                "There are 2 gates in UE Manila. One is the Gastambide Gate near the Old Dentsitry building or the SHS Building. The other one is Recto Gate near the admission Office (The Main Gate)."
+            ],
+            "context": "",
+            "context_set": []
+
+        }
+
+    ]
+}

@@ -1,0 +1,192 @@
+{% extends 'twitter/main_admin.html'%}
+{% block title %}
+
+Links 
+
+{% endblock %}
+{% block content %}
+<div class="mcw">
+<div class="cv">
+	<div>
+		<div class="inbox">
+			<div class="inbox-bx container-fluid">
+				<div class="container"> 
+
+					<div class="main_con2">
+						<div class="links_head">
+							<h2>Add UE Related Links</h2>
+						</div>
+						<form method="POST" id="addUserTwo">
+							{% csrf_token %}
+							<div class="form-row">
+								<div class="form-group col-md-3">				
+									<input type="text" name="link_name" class="form-control" placeholder="Link name" required>
+								</div>
+								<div class="form-group col-md-9">					
+									<input type="text" name="links" class="form-control"  placeholder="Links URL" required>
+								</div>
+							</div>
+							<div id="btn_links">
+							<button type="submit" name="btn_links" class="btn btn-primary" >Add links</button>
+							</div>
+						</form>
+
+			<section class="recentTwo">
+                    <!-- ------------------------ -->
+                    <div class="activity-card_two">
+                        <div class="table-responsive table_res">
+                            <table class="my_linkst" id="sourceTable">
+                                <thead>
+                                	<tr>
+                                		<th>#</th>
+                                		<th>Links Name</th>
+                                		<th>Links URL</th>
+                                		<th>Action</th>
+                                	</tr>
+                                </thead>
+                                <tbody class="link_tb">
+                                        {% for i in links %}
+                                        <tr class="record">
+                                        	<td class="count"></td>
+                                        	<td>{{i.link_name}}</td>
+                                        	<td>{{i.links}}</td>
+                                        	<td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="{% url 'twitter:links_delete' i.link_id %}" class="source_delete btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="las la-trash-alt del_s"></span></a></p></td>
+                                        </tr>
+                                        {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>    
+            </section>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<!-- ==================NOTES===================== -->
+<!-- https://stackoverflow.com/questions/11026258/html-and-javascript-auto-increment-number -->
+
+
+{% endblock content %}
+{% block scripts %}
+{% for message in messages %}
+        <script type="text/javascript">
+          window.onload = function(){
+            alert('{{message}}')
+          }
+        </script>
+{% endfor %}
+<script type="text/javascript">
+	 $(".link_tb").each(function(){
+   $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+  });
+
+
+$("form#addUserTwo").submit(function() {
+    
+    var links_name = $('input[name="link_name"]').val().trim();
+    var links_tw = $('input[name="links"]').val().trim();
+    if (links_name && links_tw) {
+        // Create Ajax Call
+        $.ajax({
+            url: '{% url "twitter:linksViesUTwo" %}',
+            data: {
+                'link_name': links_name,
+                'links': links_tw,
+            },
+            dataType: 'json',
+            success: function (data) {
+                
+                if (data.source) {
+                  
+                  appendToUsrTable(data.source);
+                }
+            }
+        });
+      } else {
+        alert("Please check your input!.");
+    }
+    $('form#addUserTwo').trigger("reset");
+    return false;
+});
+	
+function appendToUsrTable(source) {
+
+
+	console.log(source.link_id)
+	let sour = source.link_id;
+	var url = "{% url 'twitter:links_delete' 123 %}".replace(/123/, sour.toString());
+
+  $("#sourceTable > tbody:last-child").append(`
+  	<tr class="record">
+  	<td class="count"></td>
+  	<td>${source.link_name}</td>
+  	<td>${source.links}</td>
+  	<td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="${url}" class="source_delete2 btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="las la-trash-alt del_s"></span></a></p></td>
+  	<tr>
+    `);
+  $(".record").each(function(){
+		$(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+	});
+
+  $(".source_delete2").on("click", function(e){
+    e.preventDefault();
+    console.log("Hi")
+    var $this = $(this);
+    if(confirm("Sure to delete?")){
+        $.ajax({
+            url: $this.attr("href"),
+            type: "GET",
+            dataType: "json",
+            success: function(resp){
+                if(resp.message == "success"){
+                    $this.parents(".record").fadeOut("slow", function(){
+                        $this.parents(".record").remove();
+                    });
+                }else{
+                    alert(resp.message);
+                }
+            }
+        });
+    }
+    return false;
+});
+  
+
+
+}
+
+
+
+	 $(".source_delete").on("click", function(e){
+	 	e.preventDefault();
+	 	console.log("Hi")
+	 	var $this = $(this);
+	 	if(confirm("Sure to delete?")){
+	 		$.ajax({
+	 			url: $this.attr("href"),
+	 			type: "GET",
+	 			dataType: "json",
+	 			success: function(resp){
+	 				if(resp.message == "success"){
+	 					$this.parents(".record").fadeOut("slow", function(){
+	 						$this.parents(".record").remove();
+	 					});
+	 				}else{
+	 					alert(resp.message);
+	 				}
+	 			}
+	 		});
+	 	}
+	 	return false;
+	 }); 
+</script>
+{% endblock scripts %}

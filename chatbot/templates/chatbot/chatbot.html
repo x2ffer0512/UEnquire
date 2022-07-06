@@ -1,0 +1,896 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>UEnquire Chatbot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
+
+  <link rel="stylesheet" href="{% static 'chatbot/styles/bootstrap.css' %}?{% now "U" %}"">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'chatbot/styles/chat.css' %}?{% now "U" %}"">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+
+<style>
+  .msger-chat {
+  background-image:url('{% static "chatbot/img/lualhati2.png" %}');
+  background-repeat: no-repeat;
+  background-position: center;
+  /*background-attachment: fixed;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+}
+</style>
+
+</head>
+
+
+<!-- https://studygyaan.com/python/create-web-based-chatbot-in-python-django-flask -->
+
+  
+<body>
+<header>
+<div class="header">
+<div class="fex_form">
+
+  <div class="dropdown1" data-dropdown>
+    <button class="link" data-dropdown-button>Links</button>
+    <div class="dropdown-menu1">
+     
+      <div class="link_flex">
+        <div class="link_back">
+          <div class="table_links">
+            <section class="recentTwo">
+              <!-- ------------------------ -->
+              <div class="activity-card_two">
+                <div class="table-responsive table_res">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Links Name</th>
+                        <th>Links URL</th>
+                      </tr>
+                    </thead>
+                    <tbody class="link_tb">
+                      {% for i in links %}
+                      <tr class="record">
+                        <td data-label="Links Name">{{i.link_name}}</td>
+                        <td data-label="Links URL">{{i.links}}</td>
+                      </tr>
+                      {% endfor %}
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>    
+            </section>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+</div>
+
+
+<div class="dropdown1" data-dropdown>
+  <button class="link" data-dropdown-button>Lost & Found</button>
+  <div class="dropdown-menu1">
+    
+   <div class="main_LostFound">
+
+    <ul class="tabs">
+      <li data-tab-target="#Form" class="active tab">Form</li>
+      <li data-tab-target="#Lost" class="tab">Lost Items</li>
+      <li data-tab-target="#Found" class="tab">Found Items</li>
+    </ul>
+
+<!-- ==============================FORMS=============================== -->
+
+    <div class="tab-content">
+    <div class="container_los active" id="Form" data-tab-content>
+      <div class="main_head">
+        <h2>Lost and Found</h2>
+      </div>
+      <div class="main_body_lost">
+        <form method="POST" id="lostForm" name="lostForm">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Name</label>
+              <input type="text" name="name" id="name_lost" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputStudentNum">Student #</label>
+              <input type="text"  maxlength="11" name="stud_num" id="stud_num_lost" onkeypress="isInputNumber(event)" class="form-control">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input type="email" name="email" id="email_lost" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputContact">Contact</label>
+              <input type="text" name="contact"  maxlength="11" id="contact_lost" onkeypress="isInputNumber(event)" class="form-control" required >
+            </div>
+          </div>
+          <div class="radio_c">
+            <div class="custom-control custom-radio col-md-6">
+              <input type="radio" name="lost_and_found" value="L" id="newlost_lost" class="custom-control-input" required>
+              <label class="custom-control-label" for="customControlValidation2">Lost</label>
+            </div>
+            <div class="custom-control custom-radio col-md-6">
+              <input type="radio" name="lost_and_found" value="F" id="found_lost" class="custom-control-input" required>
+              <label class="custom-control-label" for="customControlValidation3">Found</label>
+            </div>
+          </div>
+
+
+
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="inputEmail4">Date</label>
+             <input type="date" class="form-control" id="lostNfound_date" name="lostNfound_date" required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputContact">Time</label>
+          <!--    <input type="time" class="form-control" name="time" required> -->
+          <!-- <input type="time" class="form-control" id="try"name="appt" min="09:00" max="18:00" required> -->
+             <!-- <input type="time" class="form-control" id="myTime" value="16:32:55" required> -->
+
+             <input type="time" class="form-control" name="lostNfound_time" value="{{ lost_fo.lostNfound_time|time }}" onchange="onTimeChange()" id="timeInput" />
+            </div>
+          </div>
+
+
+
+
+          <div class="form-group">
+            <label for="inputItem">Item</label>
+            <input type="text" name="item" id="item_lost" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Item description:</label>
+            <textarea class="form-control" name="item_desc" id="item_desc_lost" rows="3" required></textarea>
+          </div>
+
+          <div class="form-group select_css">
+            <label for="inputState">Pick Up Location</label>
+            <select name="pick_up_loc" id="pick_up_loc_lost" class="form-control" style="cursor:pointer;">
+              {% for value, lostNfound in form_new.fields.pick_up_loc.choices %}
+              <option value="{{value}}">{{lostNfound}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+
+          <button type="submit" name="lost_lost_sub" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+<!-- ============================== END FORMS=============================== -->
+
+
+<!-- ==============================lOST ITEMS =============================== -->
+
+
+    <div class="container_los" id="Lost" data-tab-content>
+      <div class="main_head">
+        <h2>List of lost items</h2>
+      </div>
+      <div class="main_body_lost">
+        <!-- ================================= -->
+
+        <div class="link_flex_two">
+        <div class="link_back_two">
+          <div class="table_links_two">
+            <section class="recentTwo_two">
+              <!-- ------------------------ -->
+              <div class="activity-card_two_two">
+                <div class="table-responsive table_res_two">
+
+                  <table id="lostTable"  class="table_two">
+                    <thead>
+                      <tr>
+                        <th>Item Name</th>
+                        <th>Item Description</th>
+                        <th>Time Lost</th>
+                        <th>Date Lost</th>
+                      </tr>
+                    </thead>
+                    <tbody class="link_tb_two">
+                      {% for i in lost_item %}
+                      <tr class="record">
+                       <td data-label="Links Item">{{i.item}}</td>
+                       <td data-label="Links item_desc" >{{i.item_desc}}</td>
+                       <td data-label="Links time" >{{i.lostNfound_time}}</td>
+                       <td data-label="Links date" >{{i.lostNfound_date}}</td>
+                      </tr>
+                      {% endfor %}
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>    
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      </div>
+    </div>
+
+<!-- ==============================END lOST ITEMS =============================== -->
+
+<!-- ==============================FOUND ITEMS =============================== -->
+     <div class="container_los" id="Found" data-tab-content>
+      <div class="main_head">
+        <h2>List of found items</h2>
+      </div>
+      <div class="main_body_lost">
+       <!-- =================================================================== -->
+               <div class="link_flex_two">
+        <div class="link_back_two">
+          <div class="table_links_two">
+            <section class="recentTwo_two">
+              <!-- ------------------------ -->
+              <div class="activity-card_two_two">
+                <div class="table-responsive table_res_two">
+                  <table id="foundTable" class="table_two">
+                    <thead>
+                      <tr>
+                        <th>Item Name</th>
+                        <th>Item Description</th>
+                        <th>Time Found</th>
+                        <th>Date Found</th>
+                      </tr>
+                    </thead>
+                    <tbody class="link_tb_two">
+                      {% for i in found_item %}
+                      <tr class="record">
+                        <td data-label="Links item_found">{{i.item}}</td>
+                        <td data-label="Links itemD_found" >{{i.item_desc}}</td>
+                        <td data-label="Links time_found" >{{i.lostNfound_time}}</td>
+                        <td data-label="Links date_found" >{{i.lostNfound_date}}</td>
+
+                      </tr>
+                      {% endfor %}
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>    
+            </section>
+          </div>
+        </div>
+      </div>
+       <!-- ============================================================================= -->
+      </div>
+    </div>
+<!-- ==============================END FOUND ITEMS =============================== -->
+
+  </div><!-- End tab-content -->
+
+
+  </div><!-- End main_LostFound -->
+
+</div>
+</div>
+</div>
+<div class="dropdown1 back_back" data-dropdown>
+  <button class="link" data-dropdown-button>Back</button>
+   <div class="dropdown-menu1">
+  <form method="POST" action="#" class="backForm">
+    {% csrf_token %}
+    <button type="submit" name="endSessions" id="endSessions_id">Back</button>
+  </form>
+</div>
+</div>
+
+ 
+
+</div>
+</header>
+
+
+  <div class="container-fluid">
+ 
+
+<div class="main_body">
+
+  <!-- partial:index.partial.html -->
+<div class="container">
+  <section class="msger">
+    <header class="msger-header">
+      <div class="msger-header-title">
+         UEnquire Chatbot 
+      </div>
+    </header>
+
+    <main class="msger-chat">
+      <div class="msg left-msg">
+        <div class="msg-img" style="background-image: url(https://drive.google.com/uc?export=view&id=1L4w-5llOCuVOd9BIWvllwQCj55AoGF2T)"></div> 
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">UEnquire Bot</div>
+            <div class="msg-info-time"></div>
+          </div>
+          <div class="msg-text" id="content">
+            Hi {{ request.session.user2 }}, welcome to UEnquire! Go ahead and send me a message. 😄
+          </div>
+        </div>  
+      </div>
+
+    </main>
+   
+    <!-- action="https://www.google.com/search" target="_blank" -->
+    <form class="msger-inputarea" id="search-form" method="GET">
+      {% csrf_token %}
+      
+      <input class="msger-input" id="textSearch" type="text" autocomplete="off" autofocus name="input_text">
+      <button type="button" class="iconClass"><span class="las la-microphone" id="mic"></span></button><button type="submit" name="subSend" id="id_input_user" class="msger-send-btn">Send</button>
+      <button type="submit" name="FAQ" id="BtnFAQ" class="msger-faq-btn">FAQ's</button>
+    </form>
+  </section>
+</div>
+            
+
+
+  <!-- partial -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.all.min.js"></script>
+
+<script type="text/javascript">
+
+
+
+$("#lostForm").on("submit", function(e){
+  e.preventDefault();
+
+    var value = document.querySelector('input[name="lost_and_found"]:checked').value;
+    var url = '{% url "chatbot:lost_found" %}'
+    var new_time= window.localStorage.getItem("Time_Input");
+    console.log(new_time, "<<<-- new time")
+
+    $.ajax({
+      type:'POST',
+      url:url,
+      data:{
+        name:$('#name_lost').val(),
+        stud_num:$('#stud_num_lost').val(),
+        email:$('#email_lost').val(),
+        contact:$('#contact_lost').val(),
+        lost_and_found:value,
+        time:$('#timeInput').val(),
+        date:$('#lostNfound_date').val(),
+        item:$('#item_lost').val(),
+        item_desc:$('#item_desc_lost').val(),
+        pick_up_loc:$('#pick_up_loc_lost').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+      },
+      dataType: 'json',
+      success:function(data){
+        console.log("LOst save!!!!!")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your item is successfully monitor. ' + data.source.name,
+          showConfirmButton: false,
+          timer: 1600
+        })
+        $('#name_lost').val('');
+        $('#stud_num_lost').val('');
+        $('#email_lost').val('');
+        $('#contact_lost').val('');
+        $('#item_lost').val('');
+        $('#item_desc_lost').val('');
+        $('#timeInput').val('');
+        $('#lostNfound_date').val('');
+
+        if (data.source) {
+          console.log(data.source.name,"<<<<+++++++s")
+          appendToUsrTable(data.source);
+        }
+
+      },
+      error: function(ts) { console.log(ts.responseText) }
+    });
+  });
+
+
+function appendToUsrTable(source) {
+
+  var lost = source.lost_and_found;
+
+  if(lost === 'L'){
+    console.log("LOST")
+     $("#lostTable > tbody:last-child").append(`
+    <tr class="record"">
+    <td  data-label="Links Item">${source.item}</td>
+    <td data-label="Links item_desc">${source.item_desc}</td>
+    <td data-label="Links time">${source.lostNfound_time}</td>
+    <td data-label="Links date">${source.lostNfound_date}</td>
+    <tr>
+    `);
+   }else{
+    console.log("FOUND")
+    $("#foundTable > tbody:last-child").append(`
+      <tr class="record"">
+      <td  data-label="Links item_found">${source.item}</td>
+      <td data-label="Links itemD_found">${source.item_desc}</td>
+      <td data-label="Links time_found">${source.lostNfound_time}</td>
+      <td data-label="Links date_found">${source.lostNfound_date}</td>
+      <tr>
+    `);
+
+   }
+
+
+ 
+
+
+}
+
+var inputEle = document.getElementById('timeInput');
+
+
+
+
+
+function getValue() {
+  var value = document.querySelector('input[name="lost_and_found"]:checked').value;
+  console.log(value);
+}
+
+
+function isInputNumber(evt){
+                
+    var ch = String.fromCharCode(evt.which);
+                
+    if(!(/[0-9]/.test(ch))){
+      evt.preventDefault();
+    }              
+}
+
+
+        
+  
+
+    const tabs = document.querySelectorAll('[data-tab-target]')
+    const tabContents = document.querySelectorAll('[data-tab-content]')
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.tabTarget)
+        tabContents.forEach(tabContent => {
+          tabContent.classList.remove('active')
+        })
+        tabs.forEach(tab => {
+          tab.classList.remove('active')
+        })
+        tab.classList.add('active')
+        target.classList.add('active')
+      })
+    })
+
+
+
+document.addEventListener('click', e =>{
+    const isDropdownButton = e.target.matches("[data-dropdown-button]")
+    if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return
+
+    let currentDropdown
+    if (isDropdownButton){
+      currentDropdown = e.target.closest('[data-dropdown]')
+      currentDropdown.classList.toggle('active')
+    }
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+      if (dropdown == currentDropdown) return
+      dropdown.classList.remove('active')
+    })
+  })
+
+
+
+    var user_visit = "{{ request.session.visits }}"
+    if(user_visit != 1){
+      document.getElementById("content").innerHTML = "Welcome back to UEnquire! {{ request.session.user2 }} Go ahead and send me a message. 😄";
+        }
+
+
+    const msgerForm = get(".msger-inputarea");
+    const msgerInput = get(".msger-input");
+    const msgerChat = get(".msger-chat");
+
+
+    // https://drive.google.com/uc?export=view&id=1BoHTz7OiIdemGUvaZCGFE9yagWtEhdmu
+    // https://image.flaticon.com/icons/svg/145/145867.svg
+    // Icons made by Freepik from www.flaticon.com
+    var user_user = "{{ request.session.user2 }}"
+    var gende_gender = "{{ request.session.gender }}"
+    // console.log(gende_gender)
+    const BOT_IMG = "https://drive.google.com/uc?export=view&id=1L4w-5llOCuVOd9BIWvllwQCj55AoGF2T";
+
+    // https://drive.google.com/uc?export=view&id=1L4w-5llOCuVOd9BIWvllwQCj55AoGF2T
+
+    if (gende_gender == "Female"){
+      var PERSON_IMG = "https://drive.google.com/uc?export=view&id=1BoHTz7OiIdemGUvaZCGFE9yagWtEhdmu";
+    }else{
+      var PERSON_IMG = "https://drive.google.com/uc?export=view&id=1C5tsyT0hoCHEltjlffUzSGOTb3Sg6yMK";
+    }
+
+
+    const BOT_NAME = "UEnquire Bot";
+    const PERSON_NAME = user_user;
+
+    
+
+    document.getElementById("id_input_user").addEventListener("click", event => {
+      event.preventDefault();
+
+      const msgText = msgerInput.value;
+      if (!msgText) return;
+
+      appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+      msgerInput.value = "";
+      botResponse(msgText);
+
+      
+    });
+
+ // ==========================================NEW Append===============================================
+    
+    function newAppend(name, img, side){
+      const msgCHAT = `
+      <div class="msg ${side}-msg">
+          <div class="msg-img" style="background-image: url(${img})"></div>
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">${name}</div>
+                <div class="msg-info-time">${formatDate(new Date())}</div>
+              </div>
+              <div class="msg-text"><p id="new_msg">How can I help you?</p></div>
+              <br>
+              <div class="butnew" id="demo22">
+                <button type="submit" class="NewsUp" name="NewsUp">News and updates</button>
+                <button type="submit" data-value="Enroll" class="input_bot" name="input_text">Enroll</button>
+                <button type="submit" data-value="Payment Procedures" class="input_bot" name="input_text">Payment Procedures</button>
+                <button type="submit" data-value="UE Hotline Procedures" class="input_bot" name="input_text">UE Hotline</button>
+                <button type="submit" data-value="School Hours" class="input_bot" name="input_text">School Hours</button>
+                <button type="submit" data-value="Examination Schedule" class="input_bot" name="input_text">Examination Schedule</button>
+
+              </div>
+          </div>
+        </div>
+      `;
+      msgerChat.insertAdjacentHTML("beforeend", msgCHAT);
+      msgerChat.scrollTop += 500;
+
+
+
+  // ====================================================================================================
+
+      const dd = document.getElementsByClassName('input_bot');
+      Array.from(dd).forEach(element => { 
+        element.addEventListener("click", event => {
+          event.preventDefault();
+          const msgTextTwo =  element.dataset.value
+          appendMessage(PERSON_NAME, PERSON_IMG, "right", msgTextTwo);
+          botResponse(msgTextTwo); 
+        }); 
+    });
+
+
+        // ====================================================================================================
+  //FOR NEWS AND UPDATE BUTTON
+     const AnnouncementBtn = document.getElementsByClassName('NewsUp');
+      Array.from(AnnouncementBtn).forEach(element => { 
+        element.addEventListener("click", event => {
+          event.preventDefault();
+           annaF(BOT_NAME, BOT_IMG, "left");
+
+        }); 
+    });
+
+
+
+
+    } //NEW APPEND END
+
+        //For FAQ's Button
+    document.getElementById("BtnFAQ").addEventListener("click", event => {
+      event.preventDefault();
+      newAppend(BOT_NAME, BOT_IMG, "left");
+    });
+
+
+ // ==========================================FOR NEWS AND UPDATES START===============================================
+
+
+    // function newsUpdate(name, img, side){
+    //   const msgCHAT = `
+    //   <div class="msg ${side}-msg">
+    //       <div class="msg-img" style="background-image: url(${img})"></div>
+    //         <div class="msg-bubble">
+    //           <div class="msg-info">
+    //             <div class="msg-info-name">${name}</div>
+    //             <div class="msg-info-time">${formatDate(new Date())}</div>
+    //           </div>
+    //           <div class="msg-text"><p id="new_msg">News and updates!</p></div>
+    //           <br>
+    //           <div class="butnew" id="demo22">
+    //             <button type="submit"  name="input_text" class="anna">Announcement</button>
+    //             <button type="submit" data-news="Event" class="input_bot" name="input_text">Event</button>
+    //             <button type="submit" data-news="Student Council Event" class="input_bot" name="input_text">Student Council Event</button>
+                
+    //           </div>
+    //       </div>
+    //     </div>
+    //   `;
+    //   msgerChat.insertAdjacentHTML("beforeend", msgCHAT);
+    //   msgerChat.scrollTop += 500;
+
+
+
+  // ====================================================================================================
+
+    //   const newsUpdateC = document.getElementsByClassName('input_bot');
+    //   Array.from(newsUpdateC).forEach(element => { 
+    //     element.addEventListener("click", event => {
+    //       event.preventDefault();
+    //       const msgTextTwo =  element.dataset.news
+    //       appendMessage(PERSON_NAME, PERSON_IMG, "right", msgTextTwo); 
+    //       botResponse(msgTextTwo); 
+    //     }); 
+    // });
+  // ====================================================================================================
+
+//FOR NEWS AND UPDATE BUTTON
+    //  const sourceB = document.getElementsByClassName('anna');
+    //   Array.from(sourceB).forEach(element => { 
+    //     element.addEventListener("click", event => {
+    //       event.preventDefault();
+    //        annaF(BOT_NAME, BOT_IMG, "left");
+
+    //     }); 
+    // });
+
+    // }
+
+    
+ // ==========================================FOR NEWS AND UPDATES END===============================================
+
+ // ==========================================FOR ANNOUNCEMENT START===============================================
+
+
+    function annaF(name, img, side){
+      const msgCHAT = `
+      <div class="msg ${side}-msg">
+          <div class="msg-img" style="background-image: url(${img})"></div>
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">${name}</div>
+                <div class="msg-info-time">${formatDate(new Date())}</div>
+              </div>
+              <div class="msg-text"><p id="new_msg">Announcement !!</p></div>
+              <br>
+              <div class="butnew" id="demo22">
+                {% for i in source_t %}
+                <button type="submit" data-news="{{i.source_acct}}" class="input_bot" name="input_text">{{i.source_acct}}</button>
+                {% endfor %}
+              </div>
+          </div>
+        </div>
+      `;
+      msgerChat.insertAdjacentHTML("beforeend", msgCHAT);
+      msgerChat.scrollTop += 500;
+
+
+
+  // ====================================================================================================
+
+      const newsUpdateC = document.getElementsByClassName('input_bot');
+      Array.from(newsUpdateC).forEach(element => { 
+        element.addEventListener("click", event => {
+          event.preventDefault();
+          const msgTextNEW =  element.dataset.news
+          appendMessage(PERSON_NAME, PERSON_IMG, "right", msgTextNEW);
+          twitResponse(msgTextNEW); 
+        }); 
+    });
+  // ====================================================================================================
+
+
+    }
+
+    
+ // ==========================================FOR  ANNOUNCEMENT END===============================================
+
+
+
+    function appendMessage(name, img, side, text) {
+      //   Simple solution for small apps
+      const msgHTML = `
+          <div class="msg ${side}-msg">
+            
+              <div class="msg-img" style="background-image: url(${img})"></div>
+              
+                <div class="msg-bubble">
+                    <div class="msg-info">
+                    <div class="msg-info-name">${name}</div>
+                    <div class="msg-info-time">${formatDate(new Date())}</div>
+                </div>
+                  <div class="msg-text"><pre class="pre">${text}</pre></div>
+              </div>
+            
+          </div>
+          `;
+
+      msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+      msgerChat.scrollTop += 500;
+
+       $(".msg-text").each(function(){
+   $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+    });
+    }
+
+    function botResponse(rawText) {
+      var inputText = rawText; 
+      var existingTwo = window.localStorage.getItem('UserInput');
+      existing = [];
+      existing.push(existingTwo);
+      existing.push(inputText);
+      var newString = existing.join(", ");
+      window.localStorage.setItem('UserInput',newString);   
+      // Bot Respons
+      var new_value = window.localStorage.getItem("UserInput");  
+      $.get("/post/{{obj}}/", {input_text: rawText, user_text: new_value}).done(function (data) {
+        const msgText = data;
+        const user_input = rawText;
+        var user_input_new=user_input.toLowerCase();
+        console.log(user_input_new,"<<")
+        if(user_input_new === 'bye'){
+          Swal.fire({
+            position: 'center',
+            title: 'Bye ' + user_user + ' it was nice chatting with you.',
+            timer: 2000,
+            showConfirmButton: false
+          }).then(function(){
+           document.getElementById("endSessions_id").click();
+         });
+
+        }
+        appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+      });
+
+    }
+
+    function twitResponse(rawText) {
+      // Bot Response
+      $.get("/rule/", {input_text: rawText }).done(function (data) {
+        const msgTextRule = data;
+        console.log(msgTextRule)
+        console.log("---------------------------------------------------------------------------")
+        appendMessage(BOT_NAME, BOT_IMG, "left", msgTextRule);
+  
+        });
+      }
+    // Utils
+    function get(selector, root = document) {
+      return root.querySelector(selector);
+    }
+
+    // TIME 
+    function formatDate(date) {
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var ampm = hours >= 12 ? 'pm' : 'am';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      minutes = minutes < 10 ? '0'+minutes : minutes;
+      var strTime = hours + ':' + minutes + ' ' + ampm;
+      return strTime;
+    }
+    
+    
+// FOR SPEECH RECOGNITION
+const buttonSend = document.getElementById('id_input_user');  
+const searchForm = document.querySelector("#search-form");
+const searchFormInput = searchForm.querySelector("input"); // <=> document.querySelector("#search-form input");
+
+
+// The speech recognition interface lives on the browser’s window object
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; // if none exists -> undefined
+
+
+if(SpeechRecognition){
+  console.log("Your Browser supports speech Recognition");
+  
+  const recognition = new SpeechRecognition();
+  recognition.continuous = true;
+  recognition.lang = "fil";
+
+  const micBtn = searchForm.querySelector(".iconClass");
+  const micIcon = micBtn.firstElementChild;
+
+  micBtn.addEventListener("click", micBtnClick);
+  function micBtnClick() {
+    if(micIcon.classList.contains("la-microphone")) { // Start Voice Recognition
+      recognition.start(); // First time you have to allow access to mic!
+    }
+    else {
+      recognition.stop();
+    }
+  }
+
+  recognition.addEventListener("start", startSpeechRecognition); // <=> recognition.onstart = function() {...}
+  function startSpeechRecognition() {
+    const msgerInput = get(".msger-input");
+    micIcon.classList.remove("la-microphone");
+    micIcon.classList.add("la-microphone-slash");
+    msgerInput.value = "Speaking...";
+    searchFormInput.focus();
+    console.log("Voice activated, SPEAK");
+  }
+
+  recognition.addEventListener("end", endSpeechRecognition); // <=> recognition.onend = function() {...}
+  function endSpeechRecognition() {
+    const msgerInput = get(".msger-input");
+    micIcon.classList.remove("la-microphone-slash");
+    micIcon.classList.add("la-microphone");
+    msgerInput.value = "";
+    searchFormInput.focus();
+
+    console.log("Speech recognition service disconnected");
+  }
+
+  recognition.addEventListener("result", resultOfSpeechRecognition); // <=> recognition.onresult = function(event) {...} - Fires when you stop talking
+  function resultOfSpeechRecognition(event){
+    const msgerInput = get(".msger-input");
+    const current = event.resultIndex; 
+    const transcript = event.results[current][0].transcript;
+    msgerInput.value = transcript;
+    console.log(transcript,"<--");
+    console.log(current,"<==");
+
+    setTimeout(() => {
+      document.getElementById('id_input_user').click();
+    }, 750);
+  }
+  
+}
+else{
+  console.log("Your Browser does not support speech Recognition");
+}
+
+  $(".link_tb").each(function(){
+   $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+  });
+
+  </script>
+</div>
+</div>
+</body>
+
+</html>
